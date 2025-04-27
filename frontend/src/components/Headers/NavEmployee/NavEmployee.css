@@ -1,0 +1,28 @@
+.nave{
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.6),
+        rgba(245, 245, 255, 0.9),
+        rgba(255, 240, 250, 0.8)
+      );
+    
+}
+
+.nave-docs-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vh;
+}
+
+.nave-profile-container{
+    display: flex;
+    align-items: center;
+}
+
+.nave-logo{
+    height: 10vh;
+}
+

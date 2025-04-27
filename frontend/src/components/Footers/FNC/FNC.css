@@ -1,0 +1,33 @@
+.fnc-main{
+  background: linear-gradient(
+      135deg,
+      #202020 0%,
+      #221f20 30%,
+      #251f21 60%,
+      #2a1e23 100%
+    );
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.footer-logo img{
+  max-height: 30vh;
+  max-width: 40vh;
+  margin-top: 2vh;
+}
+
+.fnc-middle-left, .fnc-middle-right, .certifications{
+  color: white
+}
+
+.fnc-middle-left h2, .fnc-middle-right h2, .certifications h2{
+  text-decoration: underline;
+  font-weight: 200;
+  padding: 1vh
+}
+
+
+.certification-logo img{
+  max-height: 10vh;
+  max-width: 10vh;
+}

@@ -1,0 +1,83 @@
+/* General Modal Layout */
+.verification-modal {
+    width: 60vw;         /* Make modal 60% of viewport width */
+    max-height: 80vh;    /* Limit height to 80% of viewport */
+    overflow-y: auto;    /* Allow vertical scroll if content overflows */
+    padding: 2rem;       /* Add padding around modal */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;      /* Center the modal */
+  }
+  
+  .verification-modal h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Section for verifying orders */
+  .verifying-order-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding-right: 10px;  /* Add some space on the right if scrolling */
+  }
+  
+  /* Style for each individual order */
+  .individual-order-verification {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .individual-order-verification h3,
+  .individual-order-verification p {
+    text-align: center;
+    margin: 0.5rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .individual-order-verification ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 0;
+  }
+  
+  /* Style for the buttons */
+  .verification-modal button {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .verification-modal button:hover {
+    background-color: #45a049;
+  }
+  
+  .verification-modal button:focus {
+    outline: none;
+  }
+  
+  /* Scrollbar styling for modal */
+  .verification-modal::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .verification-modal::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  .verification-modal::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  

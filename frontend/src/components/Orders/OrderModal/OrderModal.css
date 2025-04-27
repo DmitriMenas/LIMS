@@ -1,0 +1,36 @@
+.order-modal{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+    text-align: center;
+}
+
+.order-modal label{
+    font-size: larger;
+    font-weight: bolder;
+    margin-top: 6vh;
+    margin-bottom: 1vh;
+}
+
+.order-modal-selector{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 3vh;
+    justify-items: center;
+}
+
+.order-modal-buttons{
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    width: 25vw;
+    height: 10vh;
+    border-radius: 2vh;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-modal-buttons:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+    backdrop-filter: blur(12px);
+    transform: scale(1.1);
+}

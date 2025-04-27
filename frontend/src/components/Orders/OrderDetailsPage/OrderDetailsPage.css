@@ -1,0 +1,84 @@
+.order-details-main {
+  background: linear-gradient(
+    135deg,
+    #202020 0%,
+    #221f20 30%,
+    #251f21 60%,
+    #2a1e23 100%
+  );
+  padding-top: 1vh;
+  min-height: 100vh;
+}
+
+.order-details-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2vh;
+  height: 75vh;
+  width: 175vh;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.order-details-header {
+  text-align: left;
+  margin-left: 1.5vw;
+  text-decoration: underline;
+  font-size: larger;
+}
+
+.order-details-order-info {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(245, 245, 255, 0.9),
+    rgba(255, 240, 250, 0.8)
+  );
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2vh;
+  margin: 2vh;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.order-details-sample-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-y: auto; /* Enable vertical scrolling for this div */
+  max-height: 60vh; /* Limit the height to control how much space is allowed for scrolling */
+}
+
+.order-details-sample-card {
+  display: grid;
+  margin: 2vh;
+  border-radius: 2vh;
+  background-color: rgba(240, 240, 255, 0.8); /* A light lavender tint */
+}
+
+/* Scrollbar Styles */
+.order-details-sample-info::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+  }
+  
+  .order-details-sample-info::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Light background for the track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+  
+  .order-details-sample-info::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  .order-details-sample-info::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+  }
