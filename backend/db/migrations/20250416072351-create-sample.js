@@ -9,6 +9,16 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users', // assumes table is called 'Users'
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       sample_name: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -33,11 +43,11 @@ module.exports = {
       },
       collection_date: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       received_date: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       status: {
         type: Sequelize.STRING,

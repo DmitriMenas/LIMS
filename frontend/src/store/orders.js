@@ -1,6 +1,6 @@
 import { csrfFetch } from '../store/csrf';
 
-//containts
+//constants
 const SET_ORDERS = "orders/setOrders";
 const SET_USER_ORDERS = "orders/setUserOrders"
 const SET_ORDER_DETAILS = "orders/setOrderDetails"
@@ -46,9 +46,9 @@ const createANewOrder = (order) => {
 
 
 //thunks
-//get all spots
+//get all orders
 export const fetchOrders = () => async (dispatch) => {
-    const response = await fetch('api/orders');
+    const response = await fetch('/api/orders');
     const data = await response.json();
     dispatch(setOrders(data.Orders));
     return response

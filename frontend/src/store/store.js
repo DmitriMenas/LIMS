@@ -3,12 +3,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { thunk } from 'redux-thunk';
 import sessionReducer from './session';
 import orderReducer from './orders';
+import sampleReducer from './samples'
 
 
 //Root reducer
 const rootReducer = combineReducers({
     session: sessionReducer,
-    orders: orderReducer
+    orders: orderReducer,
+    samples: sampleReducer
 });
 
 // Enhancer

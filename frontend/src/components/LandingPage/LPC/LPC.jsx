@@ -2,12 +2,13 @@ import './LPC.css'
 import { NavLink } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchUserOrders } from '../../../store/orders'
+import { fetchUserSamples } from '../../../store/samples'
 import { useEffect, useState } from 'react'
 
 export default function LPC({user}){
     const dispatch = useDispatch()
     const orders = useSelector(state => state?.orders?.userOrders)
-    // const samples = useSelector(state => state?.orders?.userOrders?.samples)
+    const samples = useSelector(state => state?.samples?.userSamples)
     const [filterStatus, setFilterStatus] = useState(null); // default status
 
     
@@ -16,26 +17,22 @@ export default function LPC({user}){
     
     useEffect(()=> {
         dispatch(fetchUserOrders())
+        dispatch(fetchUserSamples())
     }, [dispatch])
+
+  
     
  
     return (
         <div className='lpc-main'>
             <div className='lpc-body'>
-                {/* use the following to create employees later 
-                */}
-                {/* {user?.role === 'admin' && (
-                    <NavLink to='/signup'>SignUp</NavLink>
-                )} */}
-                
                 <div className='lpc-orders-section'>
                     <div className='lpc-orders-section-header'>
                         <button className='section-header-button-1' onClick={() => setFilterStatus(null)}>All</button>
                         <button className='section-header-button-1' onClick={() => setFilterStatus('placed')}>Placed</button>
                         <button className='section-header-button-2' onClick={() => setFilterStatus('in progress')}>In Progress</button>
                         <button className='section-header-button-3' onClick={() => setFilterStatus('completed')}>Completed</button>
-                    </div>
-              
+                    </div>  
                     <div className='lpc-orders-list'>
                     {orders
                         ?.filter(order => !filterStatus || order.status === filterStatus)
@@ -60,14 +57,21 @@ export default function LPC({user}){
                         <button className='section-header-button-3' onClick={() => setFilterStatus('completed')}>Completed</button>
                     </div>
                     <div className='lpc-samples-list'>
-                        {/*Logic for showing all samples with scroll bar */}
-                        <ul>
-                            <li>Sample 1</li>
-                            <li>Sample 2</li>
-                            <li>Sample 3</li>
-                            <li>Sample 4</li>
-                            <li>Sample 5</li>
-                        </ul>
+                        {samples
+                            ?.filter(sample => !filterStatus || sample.status === filterStatus)
+                            .map((sample) => (
+                                <div key={sample.id} className='lpc-sample-card'>
+                                    <div className='lpc-samples-solo-card'>
+                                        <NavLink to={`/samples/${sample.id}`}><p>Sample Number: {sample.id}</p></NavLink>
+                                        <p>Sample Name: {sample.sample_name}</p>
+                                        <p>Sample Type: {sample.sample_type}</p>
+                                        <p>Test Type: {sample.test_type}</p>
+                                        <p>Order Number: {sample.Order.id}</p>
+                                        <p>Sample Status: {sample.status}</p>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

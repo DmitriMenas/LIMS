@@ -5,6 +5,7 @@ import VerificationModal from '../../VerificationModal/VerificationModal';
 import './OrderFormModal.css'
 import {useDispatch} from 'react-redux'
 import { createOrder } from '../../../store/orders';
+import { createSample } from '../../../store/samples';
 
 const OrderFormModal = () => {
   const [numOrders, setNumOrders] = useState(0);
@@ -27,16 +28,18 @@ const OrderFormModal = () => {
     if (currentOrder + 1 < numOrders) {
       setCurrentOrder(currentOrder + 1);
     }
+    console.log("Current Order Before Increment:", currentOrder);
   };
 
   const handleSampleRangeSelect = (min, max, label) => {
+    console.log(min, max, label)
     const count = max; // Always use the maximum selected value
   
     const updatedSamplesPerOrder = [...samplesPerOrder];
     updatedSamplesPerOrder[currentOrder] = count;
   
     const updatedSampleInputs = [...sampleInputs];
-    updatedSampleInputs[currentOrder] = Array.from({ length: count }, () => ({ name: '', type: '' }));
+    updatedSampleInputs[currentOrder] = Array.from({ length: count }, () => ({ sample_name: '', sample_type: '', test_type: '' }));
   
     setSamplesPerOrder(updatedSamplesPerOrder);
     setSampleInputs(updatedSampleInputs);
@@ -54,46 +57,49 @@ const OrderFormModal = () => {
 
   const handleSubmit = async () => {
     try {
-      // Step 1: Gather order data for each sample
-      const orderDataArray = sampleInputs.map((samples, index) => ({
-        number_of_samples: samples.length, // Set this to the actual number of samples in the current order
+      const orderDataArray = sampleInputs.map((samples) => ({
+        number_of_samples: samples.length,
         samples: samples.map(sample => ({
-          name: sample.name,
+          sample_name: sample.sample_name,
           sample_type: sample.sample_type,
           test_type: sample.test_type,
         })),
       }));
-      console.log(`Sample Inputs: ${sampleInputs} `)
-      console.log(`Order Data Array: ${orderDataArray.samples}`);  // This will log an array of objects, each containing the details of all samples for an order
-    
-      // Step 2: Dispatch the action to create each order
+  
       for (const orderData of orderDataArray) {
         const createdOrder = await dispatch(createOrder(orderData));
+  
         if (createdOrder) {
           console.log('Order created successfully:', createdOrder);
+  
+          const samplesForThisOrder = orderData.samples;
+          
+          for (const sample of samplesForThisOrder) {
+            const sampleData = {
+              sample_name: sample.sample_name,
+              sample_type: sample.sample_type,
+              test_type: sample.test_type,
+              orderId: createdOrder.id
+            };
+  
+            await dispatch(createSample(sampleData));
+          }
         } else {
           console.log('There was an error creating an order.');
         }
       }
-
-      //step 3: dispatch the action to create each sample
-      // const sampleDataArray = sampleInputs
-      // for() {
-      //   const createdSample = await dispatch(createSample, createdSample)
-      //   if(createdSample) {
-      //     console.log('Samples created succesffuly:', createdSample)
-      //   }
-      // }
-    
+  
+      // Optionally: redirect or close modals here
       window.location.href = '/';
+      
     } catch (error) {
-      // Error handling
-      console.error('Error creating orders:', error);
-      alert('There was an error creating your orders. Please try again.');
+      console.error('Error creating orders and samples:', error);
+      alert('There was an error. Please try again.');
     }
   };
-  
-  
+
+  console.log("Sample Inputs for Current Order:", sampleInputs[currentOrder]);
+
 
   return (
     <div className='order-form-modal'>
@@ -112,6 +118,7 @@ const OrderFormModal = () => {
           sampleInputs={sampleInputs}
           handleSampleInputChange={handleSampleInputChange}
           handleNextOrder={handleNextOrder}
+          handleSampleRangeSelect={handleSampleRangeSelect}
           setIsVerifying={setIsVerifying}
           currentRangeLabel={currentRangeLabel}
         />

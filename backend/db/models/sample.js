@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Sample.init({
+    userId: DataTypes.INTEGER,
     sample_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -38,11 +39,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     collection_date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     received_date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,

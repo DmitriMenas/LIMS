@@ -9,7 +9,6 @@ import NavNC from '../Headers/NavNC/NavNC';
 
 function Navigation() {
   const user = useSelector(state => state.session.user);
-  console.log(user?.role)
   // const [isLoaded, setIsLoaded] = useState(false);
   return (
 

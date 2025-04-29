@@ -91,6 +91,7 @@
     margin: 1vh;
     height: 64vh;
     text-align: left;
+    overflow-y: auto;
 }
 
 .lpc-orders-list{
@@ -100,21 +101,10 @@
 }
 
 
-.lpc-orders-list::-webkit-scrollbar {
+.lpc-orders-list::-webkit-scrollbar, .lpc-samples-list::-webkit-scrollbar {
   width: auto;
 }
 
-.lpc-orders-list::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1); /* Light background for the track */
-  border-radius: 10px; /* Rounded corners for the track */
-}
-
-.lpc-orders-list::-webkit-scrollbar-thumb {
-  background: gray; /* Color of the thumb */
-  border-radius: 90px; /* Rounded corners for the thumb */
-  transition: background-color 0.3s ease; /* Smooth transition for hover */
-  height: 10px;
-}
 
 
 .lpc-order-card {
@@ -146,4 +136,26 @@
   border-radius: 0.5vh;
   text-align: center;
   align-content: center;
+}
+
+
+.lpc-samples-card{
+  display: flex;
+  flex-direction: column;
+  max-height: 62vh; /* Limit the height */
+  padding-right: 2vh; /* Prevent the scrollbar from overlapping content */
+  margin-bottom: 2vh; /* Add some spacing between cards */
+  overflow-y: auto;
+}
+
+.lpc-samples-solo-card{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  border: 1px solid black;
+  margin: 2vh;
+  border-radius: 1.25vh;
+  background-color: rgba(240, 240, 255, 0.8); /* A light lavender tint */
+  padding-left: 4vh;
+  padding-right: 0;
+  max-height: 100%; /* Ensure it fits within the card */
 }

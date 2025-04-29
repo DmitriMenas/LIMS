@@ -5,75 +5,33 @@ const { requireAuth } = require("../../utils/auth");
 
 // GET  - all orders
 router.get("/", async (req, res) => {
-  let { page = 1, size = 20, orderId, status } = req.query;
-
-  page = Number(page);
-  size = Number(size);
-
-  // Validate page
-  if (isNaN(page) || page < 1) {
-    return res.status(400).json({
-      message: "Bad Request",
-      errors: { page: "Page must be greater than or equal to 1" },
-    });
-  }
-
-  // Validate size
-  if (isNaN(size) || size < 1 || size > 20) {
-    return res.status(400).json({
-      message: "Bad Request",
-      errors: { size: "Size must be between 1 and 20" },
-    });
-  }
-
-  // Validate orderId (optional)
-  if (orderId !== undefined) {
-    orderId = Number(orderId);
-    if (isNaN(orderId) || orderId < 1) {
-      return res.status(400).json({
-        message: "Bad Request",
-        errors: { orderId: "Order Id must be greater than 0" },
-      });
-    }
-  }
-
-  // Validate status (optional)
-  const validStatuses = ["in progress", "completed", "placed"];
-  if (status !== undefined && !validStatuses.includes(status)) {
-    return res.status(400).json({
-      message: "Bad Request",
-      errors: {
-        status: "Order Status must be paid, in progress, or completed.",
-      },
-    });
-  }
-
-  const where = {};
-  if (orderId) where.id = orderId;
-  if (status) where.status = status;
-
+  console.log('made it to the route')
   try {
     const allOrders = await Order.findAll({
-      where,
-      limit: size,
-      offset: (page - 1) * size,
-      include: [{ model: Sample }],
-      attributes: [
-        "id",
-        "sample_type",
-        "test_type",
-        "status",
-        "total_price",
-        "number_of_samples",
-        "createdAt",
-        "updatedAt",
-      ],
+      include: [
+        { model: Sample,
+          attributes: [
+            "id",
+            "sample_name",
+            "sample_type",
+            "test_type",
+            "status",
+            "createdAt",
+            "updatedAt",
+          ],
+         }],
+         attributes: [
+          "id",
+          "status",
+          "total_price",
+          "number_of_samples",
+          "createdAt",
+          "updatedAt",
+        ],
     });
 
     return res.json({
-      Orders: allOrders,
-      page,
-      size,
+      Orders: allOrders
     });
   } catch (error) {
     console.error("Error fetching orders:", error);
@@ -109,15 +67,28 @@ router.get('/current', requireAuth, async (req, res) => {
     try{
         const userOrders = await Order.findAll({
             where: {userId: userId},
-            include: [{model: User}, {model: Sample}],
-            attributes: [
+            include: [
+              { model: Sample,
+                attributes: [
+                  "id",
+                  "sample_name",
+                  "sample_type",
+                  "test_type",
+                  "status",
+                  "createdAt",
+                  "updatedAt",
+                ],
+               },
+               {model: User}
+              ],
+               attributes: [
                 "id",
                 "status",
                 "total_price",
                 "number_of_samples",
                 "createdAt",
                 "updatedAt",
-            ]
+              ],
         })
         return res.json({
             userOrders: userOrders,

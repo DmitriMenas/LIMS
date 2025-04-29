@@ -14,6 +14,7 @@ module.exports = {
     */
     await queryInterface.bulkInsert('samples', [
       {
+        userId: 3,
         sample_name: '2504CH04162501',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -26,6 +27,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162502',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -38,6 +40,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162503',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -50,6 +53,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162504',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -62,6 +66,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162505',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -74,6 +79,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162506',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -86,6 +92,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162507',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -98,6 +105,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162508',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -110,6 +118,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162509',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -122,6 +131,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162510',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -134,6 +144,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162511',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -146,6 +157,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162512',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -158,6 +170,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162513',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -170,6 +183,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162514',
         sample_type: 'Flower',
         test_type: "R&D",
@@ -182,6 +196,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162515',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -194,6 +209,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162516',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -206,6 +222,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162517',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -218,6 +235,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162518',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -230,6 +248,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162519',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -242,6 +261,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162520',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -254,6 +274,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162521',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -266,6 +287,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162522',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -278,6 +300,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162523',
         sample_type: 'Concentrate',
         test_type: "R&D",
@@ -290,6 +313,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        userId: 3,
         sample_name: '2504CH04162524',
         sample_type: 'Concentrate',
         test_type: "R&D",
