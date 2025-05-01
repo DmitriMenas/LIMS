@@ -7,7 +7,11 @@ function SampleModal({
   handleNextOrder,
   handleSampleRangeSelect,
   setIsVerifying,
-  currentRangeLabel
+  currentRangeLabel,
+  addSampleInput,
+  sampleRangeLimits,
+  samplesPerOrder,
+  removeSampleInput
 }) {
   // If sampleInputs or the current order's input is not defined yet
   if (!sampleInputs || !sampleInputs[currentOrder]) {
@@ -27,9 +31,14 @@ function SampleModal({
     );
   }
 
+  console.log("Current Samples:", sampleInputs[currentOrder]);
+  console.log("Max Allowed:", sampleRangeLimits[currentOrder]?.max);
+  console.log("samplesPerOrder:", samplesPerOrder);
+
+
   return (
     <div className='sample-inputs-modal'>
-      <h3>Enter names for {sampleInputs[currentOrder].length} samples in Order {currentOrder + 1}:</h3>
+      <h3>Enter names for up to {sampleRangeLimits[currentOrder]?.max} samples in Order {currentOrder + 1}:</h3>
       <div
           className={`sample-inputs range-${currentRangeLabel?.replace('–', '-')}`}
         >
@@ -58,10 +67,13 @@ function SampleModal({
                 <option value="R&D">R&D</option>
                 <option value="Full Compliance">Full Compliance</option>
               </select>
+              <button onClick={addSampleInput}>+</button>
+              <button onClick={() => removeSampleInput(index)}>-</button>
             </div>
           ))}
+          
         </div>
-      {currentOrder + 1 < sampleInputs.length ? (
+      {currentOrder + 1 < sampleInputs?.length ? (
         <button className='next-order-button' onClick={handleNextOrder}>Next Order</button>
       ) : (
         <button className={`review-order-button range-${currentRangeLabel?.replace('–', '-')}`}onClick={() => setIsVerifying(true)}>Review Orders</button>

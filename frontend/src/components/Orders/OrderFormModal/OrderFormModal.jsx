@@ -14,6 +14,7 @@ const OrderFormModal = () => {
   const [sampleInputs, setSampleInputs] = useState([]);
   const [isVerifying, setIsVerifying] = useState(false);
   const [currentRangeLabel, setCurrentRangeLabel] = useState(null);
+  const [sampleRangeLimits, setSampleRangeLimits] = useState([]);
   const dispatch = useDispatch(); // Access the Redux dispatch function
 
   const startOrderFlow = (e) => {
@@ -32,18 +33,43 @@ const OrderFormModal = () => {
   };
 
   const handleSampleRangeSelect = (min, max, label) => {
-    console.log(min, max, label)
-    const count = max; // Always use the maximum selected value
-  
     const updatedSamplesPerOrder = [...samplesPerOrder];
-    updatedSamplesPerOrder[currentOrder] = count;
+    updatedSamplesPerOrder[currentOrder] = min; // Start with min (e.g. 1)
   
     const updatedSampleInputs = [...sampleInputs];
-    updatedSampleInputs[currentOrder] = Array.from({ length: count }, () => ({ sample_name: '', sample_type: '', test_type: '' }));
+    updatedSampleInputs[currentOrder] = Array.from({ length: min }, () => ({
+      sample_name: '',
+      sample_type: '',
+      test_type: ''
+    }));
+  
+    // Track limits for the order
+    const updatedRangeLimits = [...sampleRangeLimits];
+    updatedRangeLimits[currentOrder] = { min, max, label };
   
     setSamplesPerOrder(updatedSamplesPerOrder);
     setSampleInputs(updatedSampleInputs);
+    setSampleRangeLimits(updatedRangeLimits);
     setCurrentRangeLabel(label);
+  };
+
+  const addSampleInput = () => {
+    const currentSamples = sampleInputs[currentOrder];
+    const { max } = sampleRangeLimits[currentOrder];
+  
+    if (currentSamples.length >= max) return;
+  
+    const updatedInputs = [...sampleInputs];
+    updatedInputs[currentOrder] = [
+      ...currentSamples,
+      { sample_name: '', sample_type: '', test_type: '' }
+    ];
+  
+    const updatedSamplesPerOrder = [...samplesPerOrder];
+    updatedSamplesPerOrder[currentOrder] = updatedInputs[currentOrder]?.length;
+  
+    setSampleInputs(updatedInputs);
+    setSamplesPerOrder(updatedSamplesPerOrder);
   };
 
   const handleSampleInputChange = (index, field, value) => {
@@ -54,6 +80,18 @@ const OrderFormModal = () => {
     };
     setSampleInputs(updatedInputs);
   };
+
+  const removeSampleInput = (index) => {
+    const updatedInputs = [...sampleInputs];  // Copy the current state
+    updatedInputs[currentOrder].splice(index, 1);  // Remove the sample at the specified index
+  
+    const updatedSamplesPerOrder = [...samplesPerOrder];
+    updatedSamplesPerOrder[currentOrder] = updatedInputs[currentOrder].length; // Update the count of samples for the current order
+  
+    setSampleInputs(updatedInputs);  // Update the sample inputs state
+    setSamplesPerOrder(updatedSamplesPerOrder);  // Update the samples per order count
+  };
+  
 
   const handleSubmit = async () => {
     try {
@@ -121,6 +159,10 @@ const OrderFormModal = () => {
           handleSampleRangeSelect={handleSampleRangeSelect}
           setIsVerifying={setIsVerifying}
           currentRangeLabel={currentRangeLabel}
+          addSampleInput={addSampleInput}
+          sampleRangeLimits={sampleRangeLimits}
+          samplesPerOrder={samplesPerOrder}
+          removeSampleInput={removeSampleInput}
         />
       )}
     </div>
