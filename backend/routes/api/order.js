@@ -165,4 +165,83 @@ router.post("/current", requireAuth, async (req, res) => {
   }
 });
 
+//PUT - update an order
+router.put("/:orderId", requireAuth, async (req, res) => {
+  const orderId = req.params.orderId
+  const { number_of_samples } = req.body
+
+  if(!number_of_samples){
+    return res.status(400).json({
+      message: "Bad request",
+      errors: {
+        number_of_samples: "Number of samples is required"
+      }
+    })
+  }
+
+  const order = await Order.findByPk(orderId)
+
+  if(!order){
+    return res.status(400).json({
+      message: "Order not found"
+    })
+  }
+
+  if(order.userId !== req.user.id){
+    res.status(400).json({
+      error: "Must be owner to edit this order"
+    })
+  }
+
+  await order.update({
+    number_of_samples
+  })
+
+  return res.json(order)
+
+})
+
+//Delete - delete an order
+router.delete("/:orderId", requireAuth, async (req, res) => {
+  const orderId = req.params.orderId
+  const order = await Order.findByPk(orderId)
+  const samples = await Sample.findAll({
+    where: {
+      orderId: orderId
+    }
+  });
+
+  if (samples.length === 0) {
+    return res.status(404).json({ error: 'Samples not found in specified order' });
+  }
+
+  if(!order){
+    return res.status(400).json({
+      message: "Order not found"
+    })
+  }
+
+  if(order.userId !== req.user.id){
+    res.status(400).json({
+      error: "Must be owner to delete this order"
+    })
+  }
+
+  for (const sample of samples) {
+      if (sample.userId !== req.user.id) {
+          return res.status(403).json({ error: 'Unauthorized to delete this sample' });
+      }
+      await sample.destroy(); // Delete the samples
+  }
+
+  order.destroy()
+
+  res.status(200).json({
+    message: "Successfuly deleted"
+  })
+
+})
+
+
+
 module.exports = router;

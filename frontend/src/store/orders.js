@@ -5,7 +5,7 @@ const SET_ORDERS = "orders/setOrders";
 const SET_USER_ORDERS = "orders/setUserOrders"
 const SET_ORDER_DETAILS = "orders/setOrderDetails"
 const CREATE_ORDER = "order/createOrder"
-
+const UPDATE_ORDER = "order/updateOrder"
 
 
 
@@ -42,6 +42,12 @@ const createANewOrder = (order) => {
     }
 }
 
+const updateOrder = (order) => {
+    return {
+        type: UPDATE_ORDER,
+        payload: order
+    }
+}
 
 
 
@@ -93,8 +99,32 @@ export const createOrder = (orderData) => async (dispatch) => {
       }
 }
 
+export const updateUserOrder = (orderId, orderData) => async (dispatch) => {
+    const response = await csrfFetch(`/api/orders/${orderId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData)
+    })
+    const updatedOrder = await response.json()
+    dispatch(updateOrder(updatedOrder))
+    return updatedOrder
+}
 
-
+export const deleteAOrder = (orderId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/orders/${orderId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const deletedOrder = await response.json()
+    if(deletedOrder){
+        dispatch(fetchUserOrders())
+        return deletedOrder
+    }
+}
 
 
 //initial state
@@ -115,6 +145,13 @@ const orderReducer = (state = initialState, action) => {
             return {...state, orderDetails: action.payload}
         case CREATE_ORDER:
             return {...state, orders: [...state.orders, action.payload]};
+        case UPDATE_ORDER:
+            return {...state, 
+                orders: state.orders.map((o) =>
+                    o.id === action.payload.id ? action.payload : o
+                )
+            }
+        
         default:
             return state
     }

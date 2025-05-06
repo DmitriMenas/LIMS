@@ -81,7 +81,7 @@ export default function LPE({user}){
                     style={{filter: 'invert(1) hue-rotate(180deg)'}}
                 >
                     <iframe 
-                        src="https://calendar.google.com/calendar/embed?src=dmitri%40chemhistory.com&ctz=America%2FLos_Angeles"
+                        src="https://calendar.google.com/calendar/embed?src=info%40chemhistory.com&ctz=America%2FLos_Angeles"
                         style={{ border: 0, width: '171vh', height: '96vh' }}
                         frameBorder="0" scrolling="no">
 

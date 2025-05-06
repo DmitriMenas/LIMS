@@ -96,4 +96,69 @@ router.post("/current", requireAuth, async (req, res) => {
     }
 })
 
+//PUT - update a sample
+router.put("/:sampleId", requireAuth, async (req, res) => {
+    const sampleId = req.params.sampleId
+    const {sample_name, sample_type, test_type} = req.body
+
+    if(!sample_name || !sample_type || !test_type){
+        return res.status(400).json({
+            message: "Bad request",
+            errors: {
+                sample_name: "New sample name is required",
+                sample_type: "New sample type is required",
+                test_type: "New test type is required"
+            }
+        })
+    }
+
+    const sample = await Sample.findByPk(sampleId)
+
+    if(!sample){
+        return res.status(400).json({
+            message: "Sample not found"
+          })
+    }
+
+    if(sample.userId !== req.user.id){
+        res.status(400).json({
+            error: "Must be owner to edit this sample"
+        })
+    }
+
+    await Sample.update({
+        sample_name,
+        sample_type,
+        test_type
+    })
+
+    return res.json(sample)
+})
+
+
+
+// Delete - delete a sample
+router.delete("/:sampleId", requireAuth, async (req, res) => {
+    const sampleId = req.params.sampleId
+    const sample = await Sample.findByPk(sampleId)
+
+    if(!sample){
+        return res.status(400).json({
+            message: "Sample not found"
+        })
+    }
+
+    if(sample.userId !== req.user.id){
+        res.status(400).json({
+            error: "Must be owner to delete this sample"
+        })
+    }
+
+    sample.destroy()
+
+    res.status(200).json({
+        message: "Successfully deleted"
+    })
+})
+
 module.exports = router;
