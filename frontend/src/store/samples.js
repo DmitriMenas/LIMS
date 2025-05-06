@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 //constants
 const SET_SAMPLES = "samples/setSamples"
 const SET_USER_SAMPLES = "userSamples/setUserSamples"
+const SET_SAMPLE_DETAILS = "sample/sampleDetails"
 const CREATE_SAMPLE = "sample/CreateSample"
 const UPDATE_SAMPLE = "sample/UpdateSample"
 
@@ -23,6 +24,15 @@ const setUserSamples = (samples) => {
     }
 }
 
+//get sample details
+const setSampleDetails = (sample) => {
+    return {
+        type: SET_SAMPLE_DETAILS,
+        payload: sample
+    }
+}
+
+//create a sample
 const createANewSample = (sample) => {
     return {
         type: CREATE_SAMPLE,
@@ -30,6 +40,7 @@ const createANewSample = (sample) => {
     }
 }
 
+//update a sample
 const updateSample = (sample) => {
     return {
         type: UPDATE_SAMPLE,
@@ -52,6 +63,14 @@ export const fetchUserSamples = () => async (dispatch) => {
     const response = await fetch('/api/samples/current')
     const data = await response.json()
     dispatch(setUserSamples(data.userSamples))
+    return response
+}
+
+//get sample by id - sample details
+export const fetchSampleById = (sampleId) => async (dispatch) => {
+    const response = await fetch(`/api/samples/${sampleId}`)
+    const data = await response.json()
+    dispatch(setSampleDetails(data))
     return response
 }
 
@@ -111,7 +130,8 @@ export const deleteASample = (sampleId) => async (dispatch) => {
 //initial state
 const initialState = {
     samples: [],
-    userSamples: []
+    userSamples: [],
+    sampleDetails: []
 }
 
 //reducer
@@ -121,6 +141,10 @@ const sampleReducer = (state = initialState, action) => {
             return {...state, samples: action.payload}
         case SET_USER_SAMPLES:
             return {...state, userSamples: action.payload}
+        case SET_SAMPLE_DETAILS:
+            return {...state, sampleDetails: action.payload}
+        case CREATE_SAMPLE:
+            return {...state, samples: [...state.samples, action.payload]}
         case UPDATE_SAMPLE:
             return {...state,
                 samples: state.samples.map((s) =>

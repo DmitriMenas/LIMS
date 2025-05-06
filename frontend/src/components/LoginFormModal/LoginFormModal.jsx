@@ -50,10 +50,37 @@ function LoginFormModal() {
 
   useEffect(() => {}, [errors]);
 
-  const handleDemoLogin = () => {
+  const handleDemoLogin1 = () => {
     setErrors({}); // Clear any previous errors
-    return dispatch(sessionActions.login({ credential: "demo@user.com", password: "password" }))
+    return dispatch(sessionActions.login({ credential: "demo1@user.io", password: "password1" }))
       .then(closeModal)
+      .then(navigate('/'))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setErrors(data.errors);
+        }
+      });
+  };
+
+  const handleDemoLogin2 = () => {
+    setErrors({}); // Clear any previous errors
+    return dispatch(sessionActions.login({ credential: "demo2@user.io", password: "password2" }))
+      .then(closeModal)
+      .then(navigate('/'))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setErrors(data.errors);
+        }
+      });
+  };
+
+  const handleDemoLogin3 = () => {
+    setErrors({}); // Clear any previous errors
+    return dispatch(sessionActions.login({ credential: "demo3@user.io", password: "password3" }))
+      .then(closeModal)
+      .then(navigate('/'))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) {
@@ -100,7 +127,9 @@ function LoginFormModal() {
           </button>
         </div>
         <div className='demo-button-div'>
-          <button type="button" onClick={handleDemoLogin} className='demo-button'>Demo User</button>
+          <button type="button" onClick={handleDemoLogin1} className='demo-button'>Demo User 1</button>
+          <button type="button" onClick={handleDemoLogin2} className='demo-button'>Demo User 2</button>
+          <button type="button" onClick={handleDemoLogin3} className='demo-button'>Demo User 3</button>
         </div>
       </form>
     </>

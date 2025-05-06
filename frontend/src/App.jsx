@@ -7,6 +7,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import LoginFormModal from './components/LoginFormModal/LoginFormModal';
 import SignupFormModal from './components/SignupFormModal/SignupFormModal';
 import OrderDetailsPage from './components/Orders/OrderDetailsPage/OrderDetailsPage';
+import SampleDetailPage from './components/Samples/SampleDetailPage/SampleDetailPage'
 
 
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/orders/:orderId',
         element: <OrderDetailsPage />
+      },
+      {
+        path: '/samples/:sampleId',
+        element: <SampleDetailPage />
       },
       {
         path: '*',

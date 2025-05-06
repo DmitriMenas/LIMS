@@ -12,7 +12,7 @@ const VerificationModal = ({ sampleInputs, setIsVerifying, handleSubmit }) => {
               <ul>
                 {samples.map((sample, j) => (
                   <li key={j}>
-                    <strong>Name:</strong> {sample.name || '(No name)'}
+                    <strong>Name:</strong> {sample.sample_name || '(No name)'}
                     <br />
                     <strong>Sample Type:</strong> {sample.sample_type || '(No type selected)'}
                     <br />

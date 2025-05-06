@@ -54,7 +54,7 @@ function SampleModal({
                 value={sampleInputs[currentOrder][index].sample_type}
                 onChange={(e) => handleSampleInputChange(index, 'sample_type', e.target.value)}
               >
-                <option value="null">Select Sample Type</option>
+                <option value="" disabled selected>Select Sample Type</option>
                 <option value="Flower">Flower</option>
                 <option value="Concentrate">Concentrate</option>
                 <option value="Injestible">Injestible</option>
@@ -63,7 +63,7 @@ function SampleModal({
                 value={sampleInputs[currentOrder][index].test_type}
                 onChange={(e) => handleSampleInputChange(index, 'test_type', e.target.value)}
               >
-                <option value="">Select Test Type</option>
+                <option value="" disabled selected>Select Test Type</option>
                 <option value="R&D">R&D</option>
                 <option value="Full Compliance">Full Compliance</option>
               </select>

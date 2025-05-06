@@ -145,7 +145,7 @@ router.put("/:sampleId", requireAuth, async (req, res) => {
         })
     }
 
-    await Sample.update({
+    await sample.update({
         sample_name,
         sample_type,
         test_type

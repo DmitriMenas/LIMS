@@ -68,7 +68,7 @@ export const fetchUserOrders = () => async (dispatch) => {
     return response
 }
 
-//get order by id
+//get order by id - order details
 export const fetchOrderById = (orderId) => async (dispatch) =>{
     const response = await fetch(`/api/orders/${orderId}`)
     const data = await response.json()

@@ -9,8 +9,7 @@ export default function LPC({user}){
     const dispatch = useDispatch()
     const orders = useSelector(state => state?.orders?.userOrders)
     const samples = useSelector(state => state?.samples?.userSamples)
-    const [filterStatus, setFilterStatus] = useState(null); // default status
-    const [refreshKey, setRefreshKey] = useState(0);
+    const [filterStatus, setFilterStatus] = useState(null);
 
 
     
@@ -20,7 +19,7 @@ export default function LPC({user}){
     useEffect(()=> {
         dispatch(fetchUserOrders())
         dispatch(fetchUserSamples())
-    }, [dispatch, refreshKey])
+    }, [dispatch])
 
   
     

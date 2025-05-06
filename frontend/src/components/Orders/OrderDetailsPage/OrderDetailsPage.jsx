@@ -35,28 +35,28 @@ export default function OrderDetailsPage(){
         <div className='order-details-main'>
             {order.status === 'placed' ? (
                 <div className='order-details-container'>
-                <div className='order-details-header'>
-                    <p>Order {orderId}</p>
-                </div>
-                <div className='order-details-order-info'>
-                    <p>Order Created At: {order.createdAt}</p>
-                    <p>Number of Samples: {order.number_of_samples}</p>
-                    <p>Order Status: {order.status}</p>
-                    <p>Last Updated: {order.updatedAt}</p>
-                </div>
-                <div className='order-details-sample-info'>
-                    {samples.map((sample) => (
-                        <div key={sample.id} className='order-details-sample-card'>
-                            <NavLink to={`/samples/${sample.id}`}>Sample Id: {sample.id}</NavLink>
-                            <p>Sample Name: {sample.sample_name}</p>
-                            <p>Sample Type: {sample.sample_type}</p>
-                            <p>Test Type: {sample.test_type}</p>
-                            <p>Sample Status: {sample.status}</p>
-                            <p>Last Updated: {sample.updatedAt}</p>
-                        </div>
-                    ))}
-                </div>
-                <div>
+                    <div className='order-details-header'>
+                        <p>Order {orderId}</p>
+                    </div>
+                    <div className='order-details-order-info'>
+                        <p>Order Created At: {order.createdAt}</p>
+                        <p>Number of Samples: {order.number_of_samples}</p>
+                        <p>Order Status: {order.status}</p>
+                        <p>Last Updated: {order.updatedAt}</p>
+                    </div>
+                    <div className='order-details-sample-info'>
+                        {samples.map((sample) => (
+                            <div key={sample.id} className='order-details-sample-card'>
+                                <NavLink to={`/samples/${sample.id}`}>Sample Id: {sample.id}</NavLink>
+                                <p>Sample Name: {sample.sample_name}</p>
+                                <p>Sample Type: {sample.sample_type}</p>
+                                <p>Test Type: {sample.test_type}</p>
+                                <p>Sample Status: {sample.status}</p>
+                                <p>Last Updated: {sample.updatedAt}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <div>
                     <OpenModalButton
                         buttonText="Update Order"
                         modalComponent={
