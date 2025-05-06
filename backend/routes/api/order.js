@@ -170,7 +170,7 @@ router.put("/:orderId", requireAuth, async (req, res) => {
   const orderId = req.params.orderId
   const { number_of_samples } = req.body
 
-  if(!number_of_samples){
+  if(number_of_samples === undefined || number_of_samples === null){
     return res.status(400).json({
       message: "Bad request",
       errors: {
@@ -194,7 +194,8 @@ router.put("/:orderId", requireAuth, async (req, res) => {
   }
 
   await order.update({
-    number_of_samples
+    number_of_samples,
+    total_price: number_of_samples * 69
   })
 
   return res.json(order)

@@ -65,6 +65,25 @@ router.get('/current', requireAuth, async (req, res) => {
     }
 })
 
+//Get - sample details
+router.get("/:sampleId", async (req, res) => {
+    const sampleId = req.params.sampleId
+
+    try {
+        const sample = await Sample.findByPk(sampleId)
+
+        if(!sample){
+            return res.status(404).json({
+                error: "Sample not found"
+            })
+        }
+        return res.json(sample)
+    } catch {
+        console.error(error)
+        return res.status(500).json({error: "An error occured while fetching sample details"})
+    }
+})
+
 //Post - create a sample
 router.post("/current", requireAuth, async (req, res) => {
     const userId = req.user.id
