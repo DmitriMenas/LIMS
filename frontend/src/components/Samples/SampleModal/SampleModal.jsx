@@ -31,11 +31,6 @@ function SampleModal({
     );
   }
 
-  console.log("Current Samples:", sampleInputs[currentOrder]);
-  console.log("Max Allowed:", sampleRangeLimits[currentOrder]?.max);
-  console.log("samplesPerOrder:", samplesPerOrder);
-
-
   return (
     <div className='sample-inputs-modal'>
       <h3>Enter names for up to {sampleRangeLimits[currentOrder]?.max} samples in Order {currentOrder + 1}:</h3>

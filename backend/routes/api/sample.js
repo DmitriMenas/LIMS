@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { User, Order, Sample } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
+const { Op } = require('sequelize');
 
 //Get -all samples
 router.get('/', async (req, res) => {
@@ -64,6 +65,53 @@ router.get('/current', requireAuth, async (req, res) => {
         return res.status(500).json({ message: "Internal Server Error" });
     }
 })
+
+// GET /api/samples/search?term=flower
+router.get('/search', requireAuth, async (req, res) => {
+    const { term } = req.query;
+
+    try {
+        let searchConditions = {
+            userId: req.user.id,
+        };
+        
+        if (term) {
+            let searchTerms = [];
+
+            if (["R&D", "Full Compliance"].includes(term)) {
+                searchTerms.push({ test_type: { [Op.eq]: term } });
+            } else if (["Flower", "Concentrate", "Injestible", "Oil"].includes(term)) {
+                searchTerms.push({ sample_type: { [Op.eq]: term } });
+            }
+
+            if (!isNaN(term)) {
+                searchTerms.push({ id: term }); 
+                searchTerms.push({ sample_name: { [Op.like]: `%${term}%` } });
+            }
+
+            else {
+                searchTerms.push({ sample_name: { [Op.like]: `%${term}%` } });
+            }
+
+            if (searchTerms.length > 0) {
+                searchConditions[Op.or] = searchTerms;
+            }
+        }
+
+        const samples = await Sample.findAll({
+            where: searchConditions
+        });
+
+        res.json({ samples });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
+
+
+
 
 //Get - sample details
 router.get("/:sampleId", async (req, res) => {

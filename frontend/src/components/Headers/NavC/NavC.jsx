@@ -4,21 +4,16 @@ import { NavLink } from 'react-router-dom';
 import ProfileButton from '../../Navigation/ProfileButton';
 import OpenModalButton from '../../OpenModalButton/OpenModalButton';
 import { useState, useEffect, useRef } from 'react';
-// import { useDispatch } from 'react-redux';
-// import * as sessionActions from '../../../store/session'
 // import { useNavigate } from 'react-router-dom';
 import OrderFormModal from '../../Orders/OrderFormModal/OrderFormModal'
-
+import SearchModal from '../../SearchModal/SearchModal';
+import { useModal } from '../../../context/Modal';
 
 function NavC({user}) {
-  // const sessionUser = useSelector((state) => state?.session?.user);
-  // console.log(user)
   const [showMenu, setShowMenu] = useState(false);
   const navRef = useRef(null);
   // const dispatch = useDispatch()
   // const navigate = useNavigate()
-
-  // const toggleMenu = () => setShowMenu((prev) => !prev);
   const closeMenu = () => setShowMenu(false);
 
   useEffect(() => {
@@ -51,17 +46,13 @@ function NavC({user}) {
       <NavLink to={'/'} className='ul-sub-info'>Hello, {user.username}.</NavLink>
       <div className='navc-header-modals'>
         <OpenModalButton 
+          buttonText="Search"
+          modalComponent={<SearchModal />}
+        />
+        <OpenModalButton 
           buttonText="Place an Order"
           modalComponent={<OrderFormModal />}
           />
-        {/* <OpenModalButton
-          buttonText="Edit a Sample"
-          modalComponent={<SampleEditModal />}
-          />
-        <OpenModalButton
-          buttonText="Edit an Order"
-          modalComponent={<OrderEditModal />}
-          /> */}
       </div>
       <ProfileButton user={user} />
     </nav>

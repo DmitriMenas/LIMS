@@ -6,6 +6,7 @@ import './OrderFormModal.css'
 import {useDispatch} from 'react-redux'
 import { createOrder } from '../../../store/orders';
 import { createSample } from '../../../store/samples';
+// import { useNavigate } from 'react-router-dom';
 
 const OrderFormModal = () => {
   const [numOrders, setNumOrders] = useState(0);
@@ -15,7 +16,8 @@ const OrderFormModal = () => {
   const [isVerifying, setIsVerifying] = useState(false);
   const [currentRangeLabel, setCurrentRangeLabel] = useState(null);
   const [sampleRangeLimits, setSampleRangeLimits] = useState([]);
-  const dispatch = useDispatch(); // Access the Redux dispatch function
+  const dispatch = useDispatch();
+  // const navigate = useNavigate()
 
   const startOrderFlow = (e) => {
     const orderCount = parseInt(e.target.value);
@@ -34,7 +36,7 @@ const OrderFormModal = () => {
 
   const handleSampleRangeSelect = (min, max, label) => {
     const updatedSamplesPerOrder = [...samplesPerOrder];
-    updatedSamplesPerOrder[currentOrder] = min; // Start with min (e.g. 1)
+    updatedSamplesPerOrder[currentOrder] = min;
   
     const updatedSampleInputs = [...sampleInputs];
     updatedSampleInputs[currentOrder] = Array.from({ length: min }, () => ({
@@ -82,18 +84,19 @@ const OrderFormModal = () => {
   };
 
   const removeSampleInput = (index) => {
-    const updatedInputs = [...sampleInputs];  // Copy the current state
-    updatedInputs[currentOrder].splice(index, 1);  // Remove the sample at the specified index
+    const updatedInputs = [...sampleInputs];
+    updatedInputs[currentOrder].splice(index, 1); 
   
     const updatedSamplesPerOrder = [...samplesPerOrder];
-    updatedSamplesPerOrder[currentOrder] = updatedInputs[currentOrder].length; // Update the count of samples for the current order
+    updatedSamplesPerOrder[currentOrder] = updatedInputs[currentOrder].length; 
   
-    setSampleInputs(updatedInputs);  // Update the sample inputs state
-    setSamplesPerOrder(updatedSamplesPerOrder);  // Update the samples per order count
+    setSampleInputs(updatedInputs); 
+    setSamplesPerOrder(updatedSamplesPerOrder); 
   };
   
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     try {
       const orderDataArray = sampleInputs.map((samples) => ({
         number_of_samples: samples.length,
@@ -129,14 +132,13 @@ const OrderFormModal = () => {
   
       // Optionally: redirect or close modals here
       window.location.href = '/';
+      // navigate('/')
       
     } catch (error) {
       console.error('Error creating orders and samples:', error);
       alert('There was an error. Please try again.');
     }
   };
-
-  console.log("Sample Inputs for Current Order:", sampleInputs[currentOrder]);
 
 
   return (

@@ -8,6 +8,7 @@ import LoginFormModal from './components/LoginFormModal/LoginFormModal';
 import SignupFormModal from './components/SignupFormModal/SignupFormModal';
 import OrderDetailsPage from './components/Orders/OrderDetailsPage/OrderDetailsPage';
 import SampleDetailPage from './components/Samples/SampleDetailPage/SampleDetailPage'
+import { Modal } from './context/Modal';
 
 
 
@@ -25,6 +26,7 @@ function Layout() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Outlet />}
+      <Modal />
     </>
   );
 }

@@ -6,6 +6,7 @@ const SET_USER_SAMPLES = "userSamples/setUserSamples"
 const SET_SAMPLE_DETAILS = "sample/sampleDetails"
 const CREATE_SAMPLE = "sample/CreateSample"
 const UPDATE_SAMPLE = "sample/UpdateSample"
+const FILTERED_SAMPLES = 'samples/FilterSamples'
 
 //action creators
 //get all samples
@@ -23,6 +24,12 @@ const setUserSamples = (samples) => {
         payload: samples
     }
 }
+
+export const setFilteredUserSamples = (samples) => ({
+    type: FILTERED_SAMPLES,
+    payload: samples
+  });
+  
 
 //get sample details
 const setSampleDetails = (sample) => {
@@ -73,6 +80,14 @@ export const fetchSampleById = (sampleId) => async (dispatch) => {
     dispatch(setSampleDetails(data))
     return response
 }
+
+// Fetch user samples by search query
+export const searchUserSamples = (query) => async (dispatch) => {
+    const response = await fetch(`/api/samples/search?term=${encodeURIComponent(query)}`);
+    const data = await response.json();
+    dispatch(setFilteredUserSamples(data.samples));
+    return response;
+};
 
 //create a sample
 export const createSample = (sampleData) => async (dispatch) => {
@@ -131,7 +146,8 @@ export const deleteASample = (sampleId) => async (dispatch) => {
 const initialState = {
     samples: [],
     userSamples: [],
-    sampleDetails: []
+    sampleDetails: [],
+    filteredSamples: []
 }
 
 //reducer
@@ -141,6 +157,8 @@ const sampleReducer = (state = initialState, action) => {
             return {...state, samples: action.payload}
         case SET_USER_SAMPLES:
             return {...state, userSamples: action.payload}
+        case FILTERED_SAMPLES:
+            return {...state, filteredSamples: action.payload}
         case SET_SAMPLE_DETAILS:
             return {...state, sampleDetails: action.payload}
         case CREATE_SAMPLE:
