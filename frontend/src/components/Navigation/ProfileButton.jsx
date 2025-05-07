@@ -38,6 +38,10 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showMenu]);
 
+  const handleAlert = () => {
+    alert("Feature coming soon")
+  }
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -59,7 +63,7 @@ function ProfileButton({ user }) {
               <p className='ul-sub-info'>Hello, {user.firstName}</p>
               <p className='ul-sub-info'>{user.email}</p>
               <div className='ul-sub-info'>
-                <Link to="/user/settings" className='manage-spots-link'>Settings</Link>
+                <button onClick={handleAlert}>Settings</button>
               </div>
               <div className='ul-sub-info'>
                 <button onClick={logout} className='logout-button'>Log Out</button>

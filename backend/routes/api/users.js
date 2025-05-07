@@ -65,4 +65,17 @@ router.post("/", validateSignup, async (req, res) => {
   });
 });
 
+//get all users
+router.get('/', async (req, res) => {
+  try {
+    const allUsers = await User.findAll()
+    return res.json({
+      Users: allUsers
+    })
+  } catch (error) {
+    console.error("Error fetching users:", error)
+    return res.status(500).json({message: "Internal Server Error"})
+  }
+})
+
 module.exports = router;

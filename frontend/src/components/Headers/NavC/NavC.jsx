@@ -7,7 +7,6 @@ import { useState, useEffect, useRef } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import OrderFormModal from '../../Orders/OrderFormModal/OrderFormModal'
 import SearchModal from '../../SearchModal/SearchModal';
-import { useModal } from '../../../context/Modal';
 
 function NavC({user}) {
   const [showMenu, setShowMenu] = useState(false);
@@ -54,7 +53,9 @@ function NavC({user}) {
           modalComponent={<OrderFormModal />}
           />
       </div>
-      <ProfileButton user={user} />
+      <div className='navc-profile-button-container'>
+        <ProfileButton user={user} />
+      </div>
     </nav>
   );
 }

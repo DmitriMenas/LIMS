@@ -3,7 +3,7 @@ import './UpdateSampleModal.css';
 import { useDispatch } from 'react-redux';
 import { updateUserSample } from '../../../store/samples';
 
-export default function UpdateSampleModal({ order, sample }) {
+export default function UpdateSampleModal(sample) {
   const [sampleName, setSampleName] = useState(sample.name || '');
   const [sampleType, setSampleType] = useState(sample.type || '');
   const [testType, setTestType] = useState(sample.testType || '');

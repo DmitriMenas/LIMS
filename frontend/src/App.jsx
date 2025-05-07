@@ -8,8 +8,10 @@ import LoginFormModal from './components/LoginFormModal/LoginFormModal';
 import SignupFormModal from './components/SignupFormModal/SignupFormModal';
 import OrderDetailsPage from './components/Orders/OrderDetailsPage/OrderDetailsPage';
 import SampleDetailPage from './components/Samples/SampleDetailPage/SampleDetailPage'
+import ContactUs from './components/ContactUs/ContactUs';
+import ServicesPage from './components/ServicesPage/ServicesPage';
+import UEPage from './components/UEPage/UEPage';
 import { Modal } from './context/Modal';
-
 
 
 function Layout() {
@@ -47,6 +49,18 @@ const router = createBrowserRouter([
         path: '/',
         element: <LandingPage />,
       }, 
+      {
+        path: '/contact',
+        element: <ContactUs />
+      },
+      {
+        path: "/services",
+        element: <ServicesPage />
+      },
+      {
+        path: "/users-employees",
+        element: <UEPage />
+      },
       {
         path: '/orders/:orderId',
         element: <OrderDetailsPage />

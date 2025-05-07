@@ -53,4 +53,8 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #fa8072;
   }
-  
+
+  .profile-info-dropdown{
+    z-index: 100;
+    position: absolute;
+  }

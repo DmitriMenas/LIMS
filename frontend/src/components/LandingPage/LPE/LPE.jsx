@@ -5,7 +5,7 @@ import { fetchOrders } from '../../../store/orders'
 import { fetchSamples } from '../../../store/samples'
 import { useEffect, useState } from 'react'
 
-export default function LPE({user}){
+export default function LPE(){
     const orders = useSelector(state => state?.orders?.orders)
     const samples = useSelector(state => state?.samples?.samples)
     const [filterStatus, setFilterStatus] = useState(null); // default status
@@ -23,11 +23,7 @@ export default function LPE({user}){
         <div className='lpe-main'>
             {/* <NavEmployee user={user}/> */}
             <div className='lpe-body'>
-                {/* use the following to create employees later 
-                */}
-                {/* {user?.role === 'admin' && (
-                    <NavLink to='/signup'>SignUp</NavLink>
-                )} */}
+                
                 
                 <div className='lpe-samples-section'>
                     <div className='lpe-samples-section-header'>

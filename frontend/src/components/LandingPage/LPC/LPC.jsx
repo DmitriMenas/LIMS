@@ -5,24 +5,17 @@ import { fetchUserOrders } from '../../../store/orders'
 import { fetchUserSamples } from '../../../store/samples'
 import { useEffect, useState } from 'react'
 
-export default function LPC({user}){
+export default function LPC(){
     const dispatch = useDispatch()
     const orders = useSelector(state => state?.orders?.userOrders)
     const samples = useSelector(state => state?.samples?.userSamples)
     const [filterStatus, setFilterStatus] = useState(null);
 
-
-    
-    
-    
-    
     useEffect(()=> {
         dispatch(fetchUserOrders())
         dispatch(fetchUserSamples())
     }, [dispatch])
 
-  
-    
  
     return (
         <div className='lpc-main'>

@@ -25,12 +25,12 @@ export default function SearchModal() {
                 <ul className="search-results">
                     {filteredSamples.map(sample => (
                         <div key={sample.id}>
-                            <li>{sample.id}</li>
-                            <li>{sample.sample_name}</li>
-                            <li>{sample.sample_type}</li>
-                            <li>{sample.test_type}</li>
-                            <li>{sample.orderId}</li>
-                            <li>{sample.status}</li>
+                            <p>{sample.id}</p>
+                            <p>{sample.sample_name}</p>
+                            <p>{sample.sample_type}</p>
+                            <p>{sample.test_type}</p>
+                            <p>{sample.orderId}</p>
+                            <p>{sample.status}</p>
                         </div>
                     ))}
                 </ul>

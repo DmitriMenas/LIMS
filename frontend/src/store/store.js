@@ -4,13 +4,15 @@ import { thunk } from 'redux-thunk';
 import sessionReducer from './session';
 import orderReducer from './orders';
 import sampleReducer from './samples'
+import userReducer from './users';
 
 
 //Root reducer
 const rootReducer = combineReducers({
     session: sessionReducer,
     orders: orderReducer,
-    samples: sampleReducer
+    samples: sampleReducer,
+    users: userReducer
 });
 
 // Enhancer

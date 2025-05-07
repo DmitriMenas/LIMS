@@ -20,15 +20,16 @@ export default function SampleDetailPage(){
         }
     }, [dispatch, sampleId])
     
-    if(!sample){
-        return <p>Loading...</p>
-    }
     
     useEffect(() => {
         if (sample?.orderId) {
             dispatch(fetchOrderById(sample.orderId))
         }
     }, [dispatch, sample?.orderId])
+    
+    if(!sample){
+        return <p>Loading...</p>
+    }
 
     const handleDeleteSample = () => {
       

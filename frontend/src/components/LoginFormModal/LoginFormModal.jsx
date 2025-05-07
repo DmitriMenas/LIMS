@@ -127,9 +127,9 @@ function LoginFormModal() {
           </button>
         </div>
         <div className='demo-button-div'>
-          <button type="button" onClick={handleDemoLogin1} className='demo-button'>Demo User 1</button>
-          <button type="button" onClick={handleDemoLogin2} className='demo-button'>Demo User 2</button>
-          <button type="button" onClick={handleDemoLogin3} className='demo-button'>Demo User 3</button>
+          <button type="button" onClick={handleDemoLogin3} className='demo-button'>Demo Client</button>
+          <button type="button" onClick={handleDemoLogin1} className='demo-button'>Demo Employee</button>
+          <button type="button" onClick={handleDemoLogin2} className='demo-button'>Demo Admin</button>
         </div>
       </form>
     </>

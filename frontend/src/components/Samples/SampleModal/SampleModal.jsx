@@ -10,7 +10,7 @@ function SampleModal({
   currentRangeLabel,
   addSampleInput,
   sampleRangeLimits,
-  samplesPerOrder,
+  
   removeSampleInput
 }) {
   // If sampleInputs or the current order's input is not defined yet
