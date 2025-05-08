@@ -26,6 +26,7 @@ module.exports = {
   
     const usersToCreate = [
       {
+        id: 1,
         email: 'demo1@user.io',
         username: 'DemoUser-1',
         hashedPassword: bcrypt.hashSync('password1'),
@@ -34,6 +35,7 @@ module.exports = {
         role: 'employee'
       },
       {
+        id: 2,
         email: 'demo2@user.io',
         username: 'DemoUser-2',
         hashedPassword: bcrypt.hashSync('password2'),
@@ -42,6 +44,7 @@ module.exports = {
         role: 'admin'
       },
       {
+        id: 3,
         email: 'demo3@user.io',
         username: 'DemoUser-3',
         hashedPassword: bcrypt.hashSync('password3'),
