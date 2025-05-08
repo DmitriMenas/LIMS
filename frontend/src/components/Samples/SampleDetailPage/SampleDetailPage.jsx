@@ -60,15 +60,17 @@ export default function SampleDetailPage(){
                         <p>Sample Status: {sample.status}</p>
                         <p>Last Updated: {sample.updatedAt}</p>
                     </div>
+                    {sample && sample.id && (
                     <OpenModalButton 
-                    buttonText="Update Sample"
-                    modalComponent={
+                        buttonText="Update Sample"
+                        modalComponent={
                         <UpdateSampleModal 
                             order={order}
                             sample={sample}
                         />
-                    }
+                        }
                     />
+                    )}
                     <button onClick={() => handleDeleteSample(sample.id, order.id)}>Delete the sample</button>
                 </div>
             ) : (
