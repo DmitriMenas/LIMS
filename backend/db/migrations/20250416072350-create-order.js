@@ -19,6 +19,7 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        field: 'userId'
       },
       status: {
         type: Sequelize.STRING,
