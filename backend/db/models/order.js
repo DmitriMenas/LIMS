@@ -16,10 +16,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Order.init({
-    userId: DataTypes.INTEGER,
-    status: DataTypes.STRING,
-    total_price: DataTypes.DECIMAL,
-    number_of_samples: DataTypes.INTEGER,
+    id: {
+      primaryKey: true,
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      autoIncrement: true
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "User",
+        key: 'id'
+      }
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    total_price: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    number_of_samples: {
+      type:DataTypes.INTEGER,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'Order',
