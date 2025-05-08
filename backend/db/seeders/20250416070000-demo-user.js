@@ -58,6 +58,7 @@ module.exports = {
       return User.bulkCreate(usersToCreate, { validate: true });
     } else {
       console.log('All users already exist, skipping insertion.');
+      return Promise.resolve()
     }
   },
 

@@ -27,7 +27,7 @@ module.exports = {
       const ordersToCreate = [
         {
           id: 1,
-          "userId": 3,
+          userId: 3,
           status: 'placed',
           total_price: 138,
           number_of_samples: 2,
@@ -36,7 +36,7 @@ module.exports = {
         },
         {
           id: 2,
-          "userId": 3,
+          userId: 3,
           status: 'in progress',
           total_price: 828,
           number_of_samples: 12,
@@ -45,7 +45,7 @@ module.exports = {
         },
         {
           id: 3,
-          "userId": 3,
+          userId: 3,
           status: 'completed',
           total_price: 690,
           number_of_samples: 10,
@@ -58,6 +58,7 @@ module.exports = {
         return Order.bulkCreate(ordersToCreate, { validate: true})
       } else {
         console.log('All orders already exist, skipping insertion.')
+        return Promise.resolve()
       }
 
     },

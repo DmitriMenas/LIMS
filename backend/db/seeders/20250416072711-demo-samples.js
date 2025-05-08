@@ -350,6 +350,7 @@ module.exports = {
       return Sample.bulkCreate(samplesToCreate, {validate: true})
     } else {
       console.log("All samples already exist, skipping insertion")
+      return Promise.resolve()
     }
   },
     
