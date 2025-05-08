@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: "Users",
         key: 'id'
-      }
+      },
+      field: 'userId'
     },
     status: {
       type: DataTypes.STRING,
