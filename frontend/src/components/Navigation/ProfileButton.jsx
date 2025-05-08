@@ -5,7 +5,6 @@ import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal/LoginFormModal';
 import SignupFormModal from '../SignupFormModal/SignupFormModal';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './ProfileButton.css'
 

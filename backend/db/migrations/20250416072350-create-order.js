@@ -31,7 +31,7 @@ module.exports = {
         allowNull: false
       },
       total_price: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.INTEGER,
         allowNull: true,
       },
       number_of_samples: {
