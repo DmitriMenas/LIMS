@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { updateUserSample } from '../../../store/samples';
 
 export default function UpdateSampleModal({sample}) {
-  const [sampleId, setSampleId] = useState(sample.id)
   const [sampleName, setSampleName] = useState(sample.name || '');
   const [sampleType, setSampleType] = useState(sample.type || '');
   const [testType, setTestType] = useState(sample.testType || '');
@@ -16,8 +15,8 @@ export default function UpdateSampleModal({sample}) {
       sample_type: sampleType,
       test_type: testType
     };
-    dispatch(updateUserSample(sampleId, updatedSample)).then(()=>{
-        window.location.href = `/samples/${sampleId}`
+    dispatch(updateUserSample(sample.id, updatedSample)).then(()=>{
+        window.location.href = `/samples/${sample.id}`
     })
   };
 
