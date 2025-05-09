@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     sample_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
     },
     sample_type: {
       type: DataTypes.ENUM('Flower', 'Concentrate', 'Injestible', 'Oil'),

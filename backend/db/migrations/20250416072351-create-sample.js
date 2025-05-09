@@ -29,7 +29,7 @@ module.exports = {
       sample_name: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true, // assuming each sample should have a unique identifier
+        unique: false, // assuming each sample should have a unique identifier
       },
       orderId: {
         type: Sequelize.INTEGER,
