@@ -2,8 +2,11 @@ import { useState } from 'react';
 import './UpdateSampleModal.css';
 import { useDispatch } from 'react-redux';
 import { updateUserSample } from '../../../store/samples';
+import { useParams } from 'react-router-dom';
 
 export default function UpdateSampleModal({sample}) {
+  const {sampleId} = useParams()
+  console.log(sampleId)
   const [sampleName, setSampleName] = useState(sample.name || '');
   const [sampleType, setSampleType] = useState(sample.type || '');
   const [testType, setTestType] = useState(sample.testType || '');
@@ -15,8 +18,8 @@ export default function UpdateSampleModal({sample}) {
       sample_type: sampleType,
       test_type: testType
     };
-    dispatch(updateUserSample(sample.id, updatedSample)).then(()=>{
-        window.location.href = `/samples/${sample.id}`
+    dispatch(updateUserSample(sampleId, updatedSample)).then(()=>{
+        window.location.href = `/samples/${sampleId}`
     })
   };
 
