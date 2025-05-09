@@ -12,7 +12,6 @@ export default function UpdateSampleModal({sample}) {
 
   const handleSampleUpdate = () => {
     const updatedSample = {
-      id: sampleId,
       sample_name: sampleName,
       sample_type: sampleType,
       test_type: testType
