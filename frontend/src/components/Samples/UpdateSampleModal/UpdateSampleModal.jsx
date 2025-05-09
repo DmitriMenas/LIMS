@@ -17,8 +17,8 @@ export default function UpdateSampleModal({sample}) {
       sample_type: sampleType,
       test_type: testType
     };
-    dispatch(updateUserSample(sample.id, updatedSample)).then(()=>{
-        window.location.href = `/samples/${sample.id}`
+    dispatch(updateUserSample(sampleId, updatedSample)).then(()=>{
+        window.location.href = `/samples/${sampleId}`
     })
   };
 
