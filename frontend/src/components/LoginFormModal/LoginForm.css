@@ -1,0 +1,98 @@
+.login-page-main{
+    background: linear-gradient(
+    315deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(245, 245, 255, 0.9),
+    rgba(255, 240, 250, 0.8)
+  );
+  display: flex;
+  flex-direction: column;
+}
+
+.login-page-header{
+    padding-top: 2vh;
+    display: flex;
+    justify-content: center;
+    display: grid;
+    text-align: center;
+    font-size: 2.5vh;
+    color: red;
+    padding-bottom: 1.75vh;
+}
+
+.login-page-submit-form{
+    justify-items: center;
+    margin-top: 10vh;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10vh;
+    padding-bottom: 5vh;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(245, 245, 255, 0.9), rgba(255, 240, 250, 0.8));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2vh;
+}
+
+.login-page-submit-form h1{
+    font-size: 4vh;
+    border-bottom: 0.4vh solid black;
+    width: 10vw;
+    text-align: center;
+}
+
+.login-username-input, .login-password-input{
+    height: 5vh;
+    border-radius: 1vh;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 2vh;
+}
+
+.login-username-input{
+    margin-right: 10vw
+}
+
+.login-button-div{
+    padding: 10vh
+}
+
+.login-page-login-button{
+  padding: 1vh 2vh;
+  border-radius: 1vh;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  outline: none;
+  background-color: #368c80;
+  color: white;
+  text-decoration: underline;
+  width: 10vw;
+  height: 6vh;
+  font-size: 2vh;
+}
+
+.login-page-login-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: white;
+    text-decoration: none;
+}
+
+.demo-button-div button{
+    padding: 1vh 2vh;
+    border-radius: 1vh;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #5bb4aa;
+    color: white;
+    text-decoration: underline;
+    margin-left: 1vw;
+    margin-left: 1vw;
+}
+
+.demo-button-div button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: white;
+    text-decoration: none;
+}

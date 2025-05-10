@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import './LoginForm.css';
 import { useNavigate } from 'react-router-dom';
+import FNC from '../Footers/FNC/FNC'
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -91,13 +92,15 @@ function LoginFormModal() {
   
 
   return (
-    <>
-      <h1 className='login-text'>Log In</h1>
-      <p className='error-message'>{errors.general}</p>
-      <form onSubmit={handleSubmit} className='submit-form'>
+    <div className='login-page-main'>
+      <form onSubmit={handleSubmit} className='login-page-submit-form'>
+        <h1>Login</h1>
+        <div className='login-page-header'>
+          <p className='error-message'>{errors.general}</p>
+        </div>
         <label className='input-label'>
           <input
-            className='user-input'
+            className='login-username-input'
             placeholder='Username or Email'
             type="text"
             value={credential}
@@ -107,7 +110,7 @@ function LoginFormModal() {
         </label>
         <label className='input-label'>
           <input
-            className='password-input'
+            className='login-password-input'
             placeholder='Password'
             type="password"
             value={password}
@@ -121,7 +124,7 @@ function LoginFormModal() {
         <div className='login-button-div'>
           <button 
             type="submit" 
-            className='login-button'
+            className='login-page-login-button'
             disabled={credential.length < 4 || password.length < 6}>
               Log In
           </button>
@@ -132,7 +135,8 @@ function LoginFormModal() {
           <button type="button" onClick={handleDemoLogin2} className='demo-button'>Demo Admin</button>
         </div>
       </form>
-    </>
+      <FNC />
+    </div>
   );
 }
 

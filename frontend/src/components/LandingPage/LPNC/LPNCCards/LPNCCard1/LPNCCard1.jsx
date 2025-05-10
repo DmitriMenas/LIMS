@@ -4,7 +4,7 @@ export default function LPNCCards(){
         <div className='lpnc-cards-1'>
             <div className='lpnc-body-card1-slide1'>
                 <h2>Expert Quality Control</h2>
-                <p>State of the art instrumentation, highly trained scientific personnel, & proprietary developed methodologies provide exper quality control services.</p>
+                <p>State of the art instrumentation, highly trained scientific personnel, & proprietary developed methodologies provide expert quality control services.</p>
             </div>
             <div className='lpnc-body-card2-slide1'>
                 <h2>Analytical Services</h2>

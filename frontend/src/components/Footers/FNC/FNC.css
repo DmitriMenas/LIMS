@@ -20,12 +20,47 @@
   color: white
 }
 
+.fnc-contact-us, .methods, .certifications{
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    315deg,
+    #202020 0%,
+    #221f20 30%,
+    #251f21 60%,
+    #2a1e23 100%
+  );
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    border-radius: 2vh;
+    height: 90%;
+    margin-top: 1.5vh;
+    margin-right: 1vw;
+    margin-right: 1vw;
+}
+
+.fnc-contact-us h2, .methods h2, .certifications h2{
+  text-align: center
+}
+
+.fnc-contact-us li, .methods li{
+  display: flex;
+  flex-direction: column;
+  margin: 2vh
+}
+
 .fnc-middle-left h2, .fnc-middle-right h2, .certifications h2{
   text-decoration: underline;
   font-weight: 200;
   padding: 1vh
 }
 
+.certitifaction-logos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
 .certification-logo img{
   max-height: 10vh;

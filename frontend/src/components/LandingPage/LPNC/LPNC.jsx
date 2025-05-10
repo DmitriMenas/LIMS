@@ -49,7 +49,9 @@ export default function LPNC(){
                             <h1>Accurate, precise, and consistent quality control & analytical testing.</h1>
                             <p>ChemHistory is Oregon’s premier laboratory providing comprehensive quality control/quality assurance (QA/QC), ensuring safety and regulatory compliance.</p>
                             <p>Our laboratory meets and exceeds all requirements through analytical testing methodologies, state-of-the-art instrumentation, and highly trained scientific personnel.</p>
-                            <button className='signup-button'><NavLink to='/signup'>Create an Account</NavLink></button>
+                            <div className='lpnc-signup-button-container'>
+                                <NavLink to='/signup' className='lpnc-signup-button'>Create an Account</NavLink>
+                            </div>
                         </div>
                 </div>
                 <div className='lpnc-body-sec4'>
@@ -70,7 +72,9 @@ export default function LPNC(){
                                     <li>Potency Testing</li>
                                 </ul>
                             </div>
-                            <NavLink to='/services' className='services-button'>Our Services</NavLink>
+                            <div className='lpnc-service-button-container'>
+                                <NavLink to='/services' className='services-button'>Our Services</NavLink>
+                            </div>
                         </div>
                         <div>
                             <img src='../../../../images/lpnc-body-sec3-img.jpg' className='lpnc-body-sec4-img'/>

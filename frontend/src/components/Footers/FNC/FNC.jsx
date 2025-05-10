@@ -14,13 +14,13 @@ export default function FNC(){
                     <h2>Contact Us</h2>
                     <ul>
                         <li>
-                            Phone: (503) 305-5252
+                            PHONE: (503) 305-5252
                         </li>
                         <li>
-                            Email: info@chemhistory.com
+                            EMAIL: info@chemhistory.com
                         </li>
                         <li>
-                            Visit Us: 5691 SE International Way Ste. A Milwaukie, OR 97222
+                            VISIT US: 5691 SE International Way Ste. A Milwaukie, OR 97222
                         </li>
                     </ul>
                 </div>

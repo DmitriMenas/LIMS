@@ -115,6 +115,14 @@
   justify-content: center;
 }
 
+.lpnc-body-sec3-text h2{
+  padding-top: 5vh;
+}
+
+.lpnc-body-sec3-text h1{
+  padding-top: 7vh;
+}
+
 .lpnc-body-sec4-text {
   background: linear-gradient(
     315deg,
@@ -132,10 +140,45 @@
   justify-content: center;
 }
 
+.lpnc-body-sec4-text h2{
+  padding-top: 5vh;
+}
+
+.lpnc-body-sec4-text h1{
+  padding-top: 1vh;
+}
 
 .lpnc-body-sec3-text{
   margin-right: 5vh;
 }
+
+.lpnc-signup-button-container{
+  height: 10vh;
+  align-content: center;
+}
+
+.lpnc-signup-button{
+  padding: 1vh 2vh;
+  border-radius: 1vh;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #5bb4aa;
+  color: white;
+  margin-top: 5vh;
+  display: inline-block;
+}
+
+.lpnc-signup-button:a {
+  color: white;
+}
+
+
+.lpnc-signup-button:hover{
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  color: white;
+  text-decoration: none;
+}
+
 
 .lpnc-body-sec4-text{
   margin-left: 5vh;
@@ -155,7 +198,8 @@
   grid-template-columns: 1fr 1fr;
   max-height: 10vh;
   text-align: left;
-  margin-left: 27vh;
+  margin-left: 13vw;
+  margin-top: 5vh
 }
 
 .lpnc-body-sec4-list ul {
@@ -168,12 +212,20 @@
   margin-bottom: 0.5rem;
 }
 
+.lpnc-service-button-container{
+  margin-top: 5vh;
+  height: 10vh;
+  align-content: center;
+}
+
 .services-button{
   padding: 1vh 2vh;
   border-radius: 1vh;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   background-color: #5bb4aa;
   color: white;
+  margin-top: 5vh;
+  display: inline-block;
 }
 
 
@@ -182,6 +234,4 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   color: white;
   text-decoration: none;
-  display: inline-block;
-  transform-origin: center;
 }

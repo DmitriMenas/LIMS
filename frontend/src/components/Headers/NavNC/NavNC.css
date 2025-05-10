@@ -24,11 +24,13 @@
   padding-left: 1rem;
 }
 .navnc-links {
-  justify-self: center;
+  justify-content: center;
   display: flex;
   gap: 2rem;
   border-bottom: 1px solid black;
   padding-bottom: 1vh;
+  font-size: 2vh;
+  width: 20vw;
 }
 
 .navnc-links a{
@@ -54,6 +56,8 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: none;
   outline: none;
+  color: white;
+  text-decoration: underline;
 }
 
 .login-button{
@@ -71,7 +75,7 @@
 
 .login-button:hover, .signup-button:hover{
   transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 .login-button a:hover, .signup-button a:hover{

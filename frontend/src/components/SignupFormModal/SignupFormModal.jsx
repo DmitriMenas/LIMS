@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import * as sessionActions from '../../store/session';
+import FNC from '../Footers/FNC/FNC'
 
 import './SignupForm.css';
 
@@ -46,53 +47,58 @@ function SignupFormModal() {
   };
 
   return (
-    <div className='sign-up-container'>
-      <h1 className='sign-up-title'>Sign Up</h1>
-      <form className="sign-up-form" onSubmit={handleSubmit}>
-        <div className='sign-up-inputs'>
-          <input type="text" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
-          {errors.firstName && <p>{errors.firstName}</p>}
+    <div className='sign-up-main'>
+      <div>
+        <form className="sign-up-form" onSubmit={handleSubmit}>
+          <div className='sign-up-header'>
+            <h1 className='sign-up-title'>Sign Up</h1>
+          </div>
+          <div className='sign-up-container'>
+            <input type="text" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+            {errors.firstName && <p>{errors.firstName}</p>}
 
-          <input type="text" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
-          {errors.lastName && <p>{errors.lastName}</p>}
+            <input type="text" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+            {errors.lastName && <p>{errors.lastName}</p>}
 
-          <input type="text" placeholder='Email' id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          {errors.email && <p>{errors.email}</p>}
+            <input type="text" placeholder='Email' id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            {errors.email && <p>{errors.email}</p>}
 
-          <input type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} required />
-          {errors.username && <p>{errors.username}</p>}
+            <input type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} required />
+            {errors.username && <p>{errors.username}</p>}
 
-          <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-          {errors.password && <p>{errors.password}</p>}
+            <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+            {errors.password && <p>{errors.password}</p>}
 
-          <input type="password" placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-          {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+            <input type="password" placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+            {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
 
-          {user?.role === 'admin' && (
-            <select value={confirmRole} onChange={(e) => setConfirmRole(e.target.value)}>
-              <option value="" disabled>Select Role</option>
-              <option value="client">Client</option>
-              <option value='employee'>Employee</option>
-              <option value='admin'>Admin</option>
-            </select>
-          )}
-        </div>
-        <div className='sign-up-submit'>
-          <button
-            disabled={
-              !email || 
-              !username || 
-              !firstName || 
-              !lastName || 
-              !password || 
-              !confirmPassword || 
-              (user?.role === 'admin' && !confirmRole)
-            }
-            type="submit">
-            Sign Up
-          </button>
-        </div>
-      </form>
+            {user?.role === 'admin' && (
+              <select value={confirmRole} onChange={(e) => setConfirmRole(e.target.value)}>
+                <option value="" disabled>Select Role</option>
+                <option value="client">Client</option>
+                <option value='employee'>Employee</option>
+                <option value='admin'>Admin</option>
+              </select>
+            )}
+          </div>
+          <div className='sign-up-submit'>
+            <button
+              disabled={
+                !email || 
+                !username || 
+                !firstName || 
+                !lastName || 
+                !password || 
+                !confirmPassword || 
+                (user?.role === 'admin' && !confirmRole)
+              }
+              type="submit">
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
+      <FNC />
     </div>
   );
 }

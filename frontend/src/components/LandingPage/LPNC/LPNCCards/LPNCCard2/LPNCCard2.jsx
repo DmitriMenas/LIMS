@@ -4,7 +4,7 @@ export default function LPNCCards(){
         <div className='lpnc-cards-2'>
             <div className='lpnc-body-card1-slide2'>
                 <h2>Sensory Detailed Testing</h2>
-                <p>Poteny, terpene profiling, microbvial, heavy metals, & pesticide testing.</p>
+                <p>Potency, terpene profiling, microbial, heavy metals, & pesticide testing.</p>
             </div>
             <div className='lpnc-body-card2-slide2'>
                 <h2>State Compliance - Fast TAT</h2>
