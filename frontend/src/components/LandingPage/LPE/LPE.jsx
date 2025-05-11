@@ -6,13 +6,11 @@ import { fetchSamples } from '../../../store/samples'
 import { useEffect, useState } from 'react'
 
 export default function LPE(){
+    const dispatch = useDispatch()
     const orders = useSelector(state => state?.orders?.orders)
     const samples = useSelector(state => state?.samples?.samples)
     const [filterStatus, setFilterStatus] = useState(null); // default status
     
-
-    const dispatch = useDispatch()
-
     useEffect(()=> {
         dispatch(fetchOrders())
         dispatch(fetchSamples())
@@ -21,11 +19,9 @@ export default function LPE(){
 
     return (
         <div className='lpe-main'>
-            {/* <NavEmployee user={user}/> */}
             <div className='lpe-body'>
-                
-                
                 <div className='lpe-samples-section'>
+                    <h2>Samples:</h2>
                     <div className='lpe-samples-section-header'>
                         <button className='section-header-button-1' onClick={() => setFilterStatus(null)}>All</button>
                         <button className='section-header-button-1' onClick={() => setFilterStatus('placed')}>Placed</button>
@@ -50,6 +46,7 @@ export default function LPE(){
                     </div>
                 </div>
                 <div className='lpe-orders-section'>
+                    <h2>Orders:</h2>
                     <div className='lpe-orders-section-header'>
                         <button className='section-header-button-1' onClick={() => setFilterStatus(null)}>All</button>
                         <button className='section-header-button-1' onClick={() => setFilterStatus('placed')}>Placed</button>
@@ -71,16 +68,11 @@ export default function LPE(){
                             </div>
                         ))}
                     </div>
-                
                 </div>
-                <div className='calender' 
-                    style={{filter: 'invert(1) hue-rotate(180deg)'}}
-                >
+                <div className='calender'>
                     <iframe 
                         src="https://calendar.google.com/calendar/embed?src=info%40chemhistory.com&ctz=America%2FLos_Angeles"
-                        style={{ border: 0, width: '171vh', height: '96vh' }}
-                        frameBorder="0" scrolling="no">
-
+                        >
                     </iframe>
                 </div>
             </div>

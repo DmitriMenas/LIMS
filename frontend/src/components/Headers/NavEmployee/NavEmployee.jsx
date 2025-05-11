@@ -35,17 +35,20 @@ function Navigation({user}) {
           <img src='../../../../images/chemhistory-logo-hexagon.png'  alt='hexagon-logo' className='nave-logo'/>
         </NavLink>
       </div>
-      <div>
-      <OpenModalButton 
-          buttonText="Search"
-          modalComponent={<SearchModal />}
-        />
-      </div>
-      <div className='nave-docs-container'>
-        <NavLink to='/users-employees' className='nave-docs-link'>Users & Employees</NavLink>
-      </div>
-      <div className='nave-profile-container'>
-        <ProfileButton className='nave-profilebutton'user={user}/>
+      <div className='nave-header-features'>
+        <div className='nave-seach-container'>
+          <OpenModalButton 
+              className='nave-search-button'
+              buttonText="Search Your Samples"
+              modalComponent={<SearchModal />}
+            />
+        </div>
+        <div className='nave-docs-container'>
+          <NavLink to='/users-employees' className='nave-docs-link'>Users & Employees</NavLink>
+        </div>
+        <div className='nave-profile-container'>
+          <ProfileButton className='nave-profilebutton'user={user}/>
+        </div>
       </div>
     </div>
   );

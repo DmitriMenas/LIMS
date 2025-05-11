@@ -1,0 +1,82 @@
+.ue-main{
+    background: linear-gradient(
+    145deg,
+    rgba(173, 216, 230, 0.1), /* Light Blue at top-left corner */
+    rgba(204, 229, 255, 0.4), /* Soft Blue */
+    rgba(240, 248, 255, 0.5), /* Off-white with a blueish tint */
+    rgba(173, 216, 230, 0.1) /* Light Blue at bottom-right corner */
+    );
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12.5vh;
+}
+
+.ue-clients, .ue-employees{
+    background: linear-gradient(
+    135deg,
+    #4f4f4f 0%,     /* Light gray */
+    #585858 30%,     /* Mid gray */
+    #636363 60%,     /* Darker gray */
+    #707070 100%     /* Darkest gray */
+);
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2vh;
+  height: fit-content;
+  width: 195vh;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.ue-signup-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+    background-color: #5bb4aa;
+    width: 10vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1vh;
+    border-radius: 2vh;
+    color: white;
+    font-size: 2vh;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ue-signup-button:hover{
+transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  color: white;
+  text-decoration: none;
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.ue-clients h1, .ue-employees h1{
+    text-align: left;
+    color: white;
+    margin-left: 1vw;
+    text-decoration: underline;
+}
+
+.ue-clients-list, .ue-employees-list{
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.6),
+        rgba(245, 245, 255, 0.9),
+        rgba(255, 240, 250, 0.8)
+    );
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2vh;
+    margin: 1vh;
+    height: fit-content;
+    text-align: left;
+    overflow-y: auto;
+}

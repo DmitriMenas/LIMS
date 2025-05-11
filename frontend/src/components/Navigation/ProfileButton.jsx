@@ -2,9 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { FaUserCircle } from 'react-icons/fa';
 import * as sessionActions from '../../store/session';
-import OpenModalMenuItem from './OpenModalMenuItem';
-import LoginFormModal from '../LoginFormModal/LoginFormModal';
-import SignupFormModal from '../SignupFormModal/SignupFormModal';
 import { useNavigate } from 'react-router-dom';
 import './ProfileButton.css'
 
@@ -55,37 +52,20 @@ function ProfileButton({ user }) {
       <button onClick={toggleMenu} className='profile-button'>
         <FaUserCircle />
       </button>
-      <ul className={ulClassName} ref={ulRef}>
-        {user ? (
-          <div className='profile-info-dropdown'>
-            <ul className='ul-info'>
-              <p className='ul-sub-info'>Hello, {user.firstName}</p>
-              <p className='ul-sub-info'>{user.email}</p>
-              <div className='ul-sub-info'>
-                <button onClick={handleAlert}>Settings</button>
-              </div>
-              <div className='ul-sub-info'>
-                <button onClick={logout} className='logout-button'>Log Out</button>
-              </div>
-            </ul>
-          </div>
-        ) : (
-          <>
-            <OpenModalMenuItem
-              className='login-button'
-              itemText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-            <OpenModalMenuItem
-              className='signup-button'
-              itemText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-          </>
-        )}
-      </ul>
+      <div className="profile-dropdown" ref={ulRef} hidden={!showMenu}>
+        <div className='profile-info-dropdown'>
+          <ul className='ul-info'>
+            <p className='ul-sub-info'>Hello, {user.firstName}</p>
+            <p className='ul-sub-info'>{user.email}</p>
+            <div className='ul-sub-info'>
+              <button className='settings-button'onClick={handleAlert}>Settings</button>
+            </div>
+            <div className='ul-sub-info'>
+              <button onClick={logout} className='logout-button'>Log Out</button>
+            </div>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

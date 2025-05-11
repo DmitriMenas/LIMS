@@ -1,19 +1,23 @@
 .profile-button {
-  background-color: black;
+  background-color: #2a6f75;
   color: white;
   border: none;
   padding: 5px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 2vh;
   cursor: pointer;
-  transition: background 0.3s;
-  width: 80px;
-  height: 33px;
-  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 5vw;
+  height: 5vh;
+  margin-right: 1vw;
 }
 
 .profile-button:hover {
-    background: #e0484d;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  color: white;
+  text-decoration: none;
+  transform-origin: center;
 }
 
 .logout-button {
@@ -22,14 +26,15 @@
     border: none;
     padding: 5px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 2vh;
     cursor: pointer;
-    transition: background 0.3s;
-    width: 80px;
-    height: 30px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 5vw;
+    height: 5vh;
   }
 
   .ul-info {
+    right: 1vw;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -58,3 +63,16 @@
     z-index: 100;
     position: absolute;
   }
+
+.settings-button{
+  background-color: #2a6f75;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 2vh;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 5vw;
+  height: 5vh;
+}

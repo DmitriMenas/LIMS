@@ -48,3 +48,34 @@
     width: 10vw;
     text-align: center;
 }
+
+.sign-up-container select{
+    padding: 0.85vw;
+    border-radius: 1vh;
+    margin: 1vw;
+    width: 12vw;
+    text-align: center;
+}
+
+.sign-up-submit{
+    background-color: #5bb4aa;
+    width: 10vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 2vh;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: underline;
+    font-size: 1.75vh;
+    cursor: pointer;
+}
+
+.sign-up-submit:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: white;
+    text-decoration: none;
+    transform-origin: center;
+}

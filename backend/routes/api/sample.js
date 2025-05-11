@@ -71,13 +71,16 @@ router.get('/search', requireAuth, async (req, res) => {
     const { term } = req.query;
 
     try {
-        let searchConditions = {
-            userId: req.user.id,
-        };
-        
-        if (term) {
-            let searchTerms = [];
+        let searchConditions = {};
 
+        // Only restrict to userId if the user is a client
+        if (req.user.role === 'client') {
+            searchConditions.userId = req.user.id;
+        }
+
+        let searchTerms = [];
+
+        if (term) {
             if (["R&D", "Full Compliance"].includes(term)) {
                 searchTerms.push({ test_type: { [Op.eq]: term } });
             } else if (["Flower", "Concentrate", "Injestible", "Oil"].includes(term)) {
@@ -87,9 +90,7 @@ router.get('/search', requireAuth, async (req, res) => {
             if (!isNaN(term)) {
                 searchTerms.push({ id: term }); 
                 searchTerms.push({ sample_name: { [Op.like]: `%${term}%` } });
-            }
-
-            else {
+            } else {
                 searchTerms.push({ sample_name: { [Op.like]: `%${term}%` } });
             }
 
@@ -108,6 +109,7 @@ router.get('/search', requireAuth, async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
+
 
 
 

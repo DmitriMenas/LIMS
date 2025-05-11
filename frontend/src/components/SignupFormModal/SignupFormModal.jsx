@@ -81,8 +81,9 @@ function SignupFormModal() {
               </select>
             )}
           </div>
-          <div className='sign-up-submit'>
+          <div>
             <button
+              className='sign-up-submit'
               disabled={
                 !email || 
                 !username || 
