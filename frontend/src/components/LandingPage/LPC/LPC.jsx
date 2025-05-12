@@ -21,6 +21,7 @@ export default function LPC(){
         <div className='lpc-main'>
             <div className='lpc-body'>
                 <div className='lpc-orders-section'>
+                    <h2>Orders: </h2>
                     <div className='lpc-orders-section-header'>
                         <button className='section-header-button-1' onClick={() => setFilterStatus(null)}>All</button>
                         <button className='section-header-button-1' onClick={() => setFilterStatus('placed')}>Placed</button>
@@ -44,6 +45,7 @@ export default function LPC(){
                 
                 </div>
                 <div className='lpc-samples-section'>
+                    <h2>Samples: </h2>
                     <div className='lpc-orders-section-header'>
                         <button className='section-header-button-1' onClick={() => setFilterStatus(null)}>All</button>
                         <button className='section-header-button-1' onClick={() => setFilterStatus('placed')}>Placed</button>

@@ -1,23 +1,31 @@
 .lpc-main{
   background: linear-gradient(
-    135deg,
-    #202020 0%,
-    #221f20 30%,
-    #251f21 60%,
-    #2a1e23 100%
-  );
+  145deg,
+  rgba(173, 216, 230, 0.1), /* Light Blue at top-left corner */
+  rgba(204, 229, 255, 0.4), /* Soft Blue */
+  rgba(240, 248, 255, 0.5), /* Off-white with a blueish tint */
+  rgba(173, 216, 230, 0.1) /* Light Blue at bottom-right corner */
+);
+
   padding-bottom: 10vh;
   padding-top: 1vh;
 }
 
 .lpc-samples-section, .lpc-orders-section{
-  background-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    #4f4f4f 0%,     /* Light gray */
+    #585858 30%,     /* Mid gray */
+    #636363 60%,     /* Darker gray */
+    #707070 100%     /* Darkest gray */
+);
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2vh;
   height: 75vh;
-  width: 175vh;
+  width: 195vh;
   margin-top: 5vh;
   margin-left: auto;
   margin-right: auto;
@@ -25,14 +33,20 @@
   justify-content: center;
 }
 
+.lpc-samples-section h2, .lpc-orders-section h2{
+  color: white;
+  text-decoration: underline;
+  text-align: left;
+  margin-left: 1vw;
+}
 
 .lpc-samples-section-header, .lpc-orders-section-header{
   background: linear-gradient(
-      315deg,
-      rgba(255, 255, 255, 0.6),
-      rgba(245, 245, 255, 0.9),
-      rgba(255, 240, 250, 0.8)
-    );
+  145deg,
+  rgba(255, 255, 255, 0.6),
+  rgba(245, 245, 255, 0.9),
+  rgba(240, 240, 255, 0.8)
+);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
@@ -89,15 +103,14 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 2vh;
     margin: 1vh;
-    height: 64vh;
+    height: 57vh;
     text-align: left;
     overflow-y: auto;
 }
 
 .lpc-orders-list{
-  overflow-y: auto;
   margin-right: 10px;
-  border-radius: 1vh;
+  border-radius: 2vh;
 }
 
 
