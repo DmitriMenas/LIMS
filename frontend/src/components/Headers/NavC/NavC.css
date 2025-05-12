@@ -40,3 +40,11 @@
   cursor: pointer;
   margin: 2vw
 }
+
+.navc-buttons:hover{
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  color: white;
+  text-decoration: none;
+  transform-origin: center;
+}

@@ -32,7 +32,7 @@ function Navigation({user}) {
     <div className='nave'>
       <div className='nave-logo-container'>
         <NavLink to='/'>
-          <img src='../../../../images/chemhistory-logo-hexagon.png'  alt='hexagon-logo' className='nave-logo'/>
+          <img src='/images/chemhistory-logo-hexagon.png'  alt='hexagon-logo' className='nave-logo'/>
         </NavLink>
       </div>
       <div className='nave-header-features'>

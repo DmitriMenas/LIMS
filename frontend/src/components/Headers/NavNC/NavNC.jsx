@@ -9,7 +9,7 @@ export default function NavNC() {
     <div className='navnc'>
       <div className='navnc-logo'>
         <NavLink to='/'>
-          <img src='../../../images/chemhistory-logo.png' alt='logo'/>
+          <img src='/images/chemhistory-logo.png' alt='logo'/>
         </NavLink>
       </div>
       <div className='navnc-links'>

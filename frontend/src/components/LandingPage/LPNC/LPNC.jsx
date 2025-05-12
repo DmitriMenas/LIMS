@@ -42,7 +42,7 @@ export default function LPNC(){
 
                 <div className='lpnc-body-sec3'>
                         <div>
-                            <img src='../../../../images/lpnc-body-sec3-img.jpg' className='lpnc-body-sec3-img'/>
+                            <img src="/images/lpnc-body-sec3-img.jpg" className='lpnc-body-sec3-img'/>
                         </div>
                         <div className='lpnc-body-sec3-text'>
                             <h2>Welcome to ChemHistory</h2>
@@ -77,7 +77,7 @@ export default function LPNC(){
                             </div>
                         </div>
                         <div>
-                            <img src='../../../../images/lpnc-body-sec3-img.jpg' className='lpnc-body-sec4-img'/>
+                            <img src="/images/lpnc-body-sec3-img.jpg" className='lpnc-body-sec4-img'/>
                         </div>
                 </div>
             </div>

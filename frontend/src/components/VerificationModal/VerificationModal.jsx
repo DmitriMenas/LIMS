@@ -23,7 +23,7 @@ const VerificationModal = ({ sampleInputs, setIsVerifying, handleSubmit }) => {
             </div>
           ))}
         </div>
-        <div>
+        <div className='verification-buttons'>
           <button onClick={() => setIsVerifying(false)}>Go Back</button>
           <button onClick={handleSubmit}>Submit All Orders</button>
         </div>

@@ -3,6 +3,14 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 4fr;
     text-align: center;
+    background: linear-gradient(
+    135deg,
+    #4f4f4f 0%,     /* Light gray */
+    #585858 30%,     /* Mid gray */
+    #636363 60%,     /* Darker gray */
+    #707070 100%     /* Darkest gray */
+    );
+    border-radius: 2vh;
 }
 
 .sample-range-modal h3, .sample-inputs-modal h3{
@@ -10,12 +18,18 @@
     font-weight: bolder;
     margin-top: 6vh;
     margin-bottom: 1vh;
+    color: white;
 }
 
 .sample-range-selector{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 10vh;
+}
+
+.sample-range-selector button{
+    font-size: 2vh;
+    font-weight: 600;
 }
 
 .sample-range-buttons{
@@ -38,6 +52,14 @@
     display: grid;
     grid-template-rows: 1fr 5fr;
     text-align: center;
+    background: linear-gradient(
+    135deg,
+    #4f4f4f 0%,     /* Light gray */
+    #585858 30%,     /* Mid gray */
+    #636363 60%,     /* Darker gray */
+    #707070 100%     /* Darkest gray */
+    );
+    border-radius: 2vh;
 }
 
 /* range 1-5 */
@@ -69,6 +91,10 @@
     height: 5vh;
     border-radius: 1vh;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #5bb4aa;
+    color: white;
+    text-decoration: underline;
+    font-size: 1.75vh;
 }
 
 .review-order-button.range-1-5:hover,
@@ -79,6 +105,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
     backdrop-filter: blur(12px);
     transform: scale(1.1);
+    text-decoration: none;
 }
 
 .sample-inputs.range-6-11,

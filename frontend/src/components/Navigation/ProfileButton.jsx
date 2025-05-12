@@ -45,8 +45,6 @@ function ProfileButton({ user }) {
     navigate('/')
   };
 
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-
   return (
     <div className="profile">
       <button onClick={toggleMenu} className='profile-button'>

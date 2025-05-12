@@ -17,6 +17,8 @@
   border-radius: 2vh;
   scrollbar-width: none;        /* Firefox */
   -ms-overflow-style: none; 
+  border: 1px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
  
 .search-modal-search-bar{
@@ -25,6 +27,7 @@
   padding-left: 2vw;
   font-size: 2vh;
   border-radius: 2vh;
+  
 }
 
 .search-results{
@@ -38,6 +41,7 @@
   width: 45vw;
   height: 40vh;
   overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search-results::-webkit-scrollbar{

@@ -6,7 +6,7 @@ export default function FNC(){
         <div className='fnc-main'>
             <div className='fnc-left'>
                 <div className='footer-logo'>
-                    <img src='../../../images/chemhistory-logo-hexagon.png' />
+                    <img src='/images/chemhistory-logo-hexagon.png' />
                 </div>
             </div>
             <div className='fnc-middle-left'>
@@ -49,13 +49,13 @@ export default function FNC(){
                     <h2>Certifications</h2>
                     <div className='certitifaction-logos'>
                         <NavLink className='certification-logo' to='https://www.oregon.gov/oha/Pages/PageNotFoundError.aspx?requestUrl=https://www.oregon.gov/oha/pages/404.aspx'>
-                            <img src='../../../images/orelap.png'/>
+                            <img src='/images/orelap.png'/>
                         </NavLink>
                         <NavLink className='certification-logo' to='https://www.oregon.gov/oha/Pages/PageNotFoundError.aspx?requestUrl=https://www.oregon.gov/oha/pages/404.aspx'>
-                            <img src='../../../images/NELAP.png'/>
+                            <img src='/images/NELAP.png'/>
                         </NavLink>
                         <NavLink className='certification-logo' to='https://www.oregon.gov/oha/Pages/PageNotFoundError.aspx?requestUrl=https://www.oregon.gov/oha/pages/404.aspx'>
-                            <img src='../../../images/olcc.png'/>
+                            <img src='/images/olcc.png'/>
                         </NavLink>
                     </div>
                 </div>
