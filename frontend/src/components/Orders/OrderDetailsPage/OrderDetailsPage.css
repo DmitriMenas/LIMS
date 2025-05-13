@@ -1,23 +1,31 @@
 .order-details-main {
   background: linear-gradient(
-    135deg,
-    #202020 0%,
-    #221f20 30%,
-    #251f21 60%,
-    #2a1e23 100%
-  );
+  145deg,
+  rgba(173, 216, 230, 0.1), /* Light Blue at top-left corner */
+  rgba(204, 229, 255, 0.4), /* Soft Blue */
+  rgba(240, 248, 255, 0.5), /* Off-white with a blueish tint */
+  rgba(173, 216, 230, 0.1) /* Light Blue at bottom-right corner */
+);
+
+  padding-bottom: 10vh;
   padding-top: 1vh;
-  min-height: 100vh;
 }
 
 .order-details-container {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    #4f4f4f 0%,     /* Light gray */
+    #585858 30%,     /* Mid gray */
+    #636363 60%,     /* Darker gray */
+    #707070 100%     /* Darkest gray */
+);
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2vh;
-  height: 75vh;
-  width: 175vh;
+  height: 82vh;
+  width: 195vh;
   margin-top: 5vh;
   margin-left: auto;
   margin-right: auto;
@@ -30,6 +38,7 @@
   margin-left: 1.5vw;
   text-decoration: underline;
   font-size: larger;
+  color: white
 }
 
 .order-details-order-info {
@@ -52,33 +61,41 @@
 .order-details-sample-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  overflow-y: auto; /* Enable vertical scrolling for this div */
-  max-height: 60vh; /* Limit the height to control how much space is allowed for scrolling */
+  overflow-y: auto;
+  height: 55vh;
 }
 
 .order-details-sample-card {
   display: grid;
   margin: 2vh;
   border-radius: 2vh;
-  background-color: rgba(240, 240, 255, 0.8); /* A light lavender tint */
+  background-color: rgba(240, 240, 255, 0.8);
+  height: 45vh;
 }
 
 /* Scrollbar Styles */
 .order-details-sample-info::-webkit-scrollbar {
-    width: 12px; /* Set the width of the scrollbar */
+    display: none;
   }
-  
-  .order-details-sample-info::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1); /* Light background for the track */
-    border-radius: 10px; /* Rounded corners for the track */
-  }
-  
-  .order-details-sample-info::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-    transition: background-color 0.3s ease; /* Smooth transition for hover */
-  }
-  
-  .order-details-sample-info::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker color on hover */
-  }
+
+
+.order-update-buttons button{
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+  width: 10vw;
+  height: 6vh;
+  border-radius: 2vh;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #5bb4aa;
+  color: white;
+  text-decoration: underline;
+}
+
+.order-update-buttons button:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+  backdrop-filter: blur(12px);
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+

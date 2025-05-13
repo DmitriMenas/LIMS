@@ -36,7 +36,7 @@ export default function OrderDetailsPage(){
             {order.status === 'placed' ? (
                 <div className='order-details-container'>
                     <div className='order-details-header'>
-                        <p>Order {orderId}</p>
+                        <p>Order: {orderId}</p>
                     </div>
                     <div className='order-details-order-info'>
                         <p>Order Created At: {order.createdAt}</p>
@@ -56,18 +56,18 @@ export default function OrderDetailsPage(){
                             </div>
                         ))}
                     </div>
-                    <div>
-                    <OpenModalButton
-                        buttonText="Update Order"
-                        modalComponent={
-                        <UpdateOrderModal 
-                            order={order}
-                            samples={samples}
-                        />}
-                    />
-                    <button onClick={() => handleDeleteOrder(order.id)}>Delete the order</button>
+                    <div className='order-update-buttons'>
+                        <OpenModalButton
+                            buttonText="Update Order"
+                            modalComponent={
+                            <UpdateOrderModal 
+                                order={order}
+                                samples={samples}
+                            />}
+                        />
+                        <button onClick={() => handleDeleteOrder(order.id)}>Delete the order</button>
+                    </div>
                 </div>
-            </div>
             ) : (
                 <div className='order-details-container'>
                     <div className='order-details-header'>

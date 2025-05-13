@@ -2,6 +2,7 @@ import "./SampleDetailPage.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { deleteASample, fetchSampleById } from "../../../store/samples"
 import { deleteAOrder, fetchOrderById, updateUserOrder } from "../../../store/orders"
 import OpenModalButton from "../../OpenModalButton/OpenModalButton"
@@ -58,20 +59,23 @@ export default function SampleDetailPage(){
                         <p>Sample Type: {sample.sample_type}</p>
                         <p>Test Type: {sample.test_type}</p>
                         <p>Sample Status: {sample.status}</p>
+                        <NavLink to={`/orders/${sample.orderId}`}>Order Id: {sample.orderId}</NavLink>
                         <p>Last Updated: {sample.updatedAt}</p>
                     </div>
-                    {sample && sample.id && (
-                    <OpenModalButton 
-                        buttonText="Update Sample"
-                        modalComponent={
-                        <UpdateSampleModal 
-                            order={order}
-                            sample={sample}
+                    <div className="sample-details-buttons">
+                        {sample && sample.id && (
+                        <OpenModalButton 
+                            buttonText="Update Sample"
+                            modalComponent={
+                            <UpdateSampleModal 
+                                order={order}
+                                sample={sample}
+                            />
+                            }
                         />
-                        }
-                    />
-                    )}
-                    <button onClick={() => handleDeleteSample(sample.id, order.id)}>Delete the sample</button>
+                        )}
+                        <button onClick={() => handleDeleteSample(sample.id, order.id)}>Delete the sample</button>
+                    </div>
                 </div>
             ) : (
                 <div className="sample-details-container">

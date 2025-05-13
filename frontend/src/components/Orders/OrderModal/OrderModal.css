@@ -11,6 +11,7 @@
     #707070 100%     /* Darkest gray */
     );
     border-radius: 2vh;
+    border: 1px solid black;
 }
 
 .order-modal label{

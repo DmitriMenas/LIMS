@@ -1,4 +1,4 @@
-import './UpdateOrderModal'
+import './UpdateOrderModal.css'
 import { useDispatch } from 'react-redux';
 import { updateUserOrder } from '../../../store/orders';
 import { deleteASample } from '../../../store/samples';
@@ -27,12 +27,10 @@ export default function UpdateOrderModal({ order, samples }){
 
 
     return(
-       <div className='update-order-modal-main'>
-        
-
+       <div className='updating-order-modal-main'>
             {samples.map((sample) => (
                 sample.status === 'placed' ? (
-                    <div key={sample.id} className='order-details-sample-card'>
+                    <div key={sample.id} className='updating-sample'>
                         <p>Sample ID: {sample.id}</p>
                         <p>Sample Name: {sample.sample_name}</p>
                         <p>Sample Type: {sample.sample_type}</p>
@@ -42,7 +40,7 @@ export default function UpdateOrderModal({ order, samples }){
                         <button onClick={() => handleDeleteSample(order.id, sample.id)}>Remove Sample</button>
                     </div>
                 ) : (
-                    <div key={sample.id} className='order-details-sample-card'>
+                    <div key={sample.id} className=''>
                         <p>Sample ID: {sample.id}</p>
                         <p>Sample Name: {sample.sample_name}</p>
                         <p>Sample Type: {sample.sample_type}</p>
@@ -53,12 +51,11 @@ export default function UpdateOrderModal({ order, samples }){
                 )
             ))}
             {order.status === 'placed' && (
-                <div>
+                <div className='update-add-sample-button'>
                     <button onClick={handleAddSample}>Add Another Sample</button>
                     
                 </div>
-            )}
-          
+            )}    
        </div>
     )
 }

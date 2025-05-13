@@ -1,0 +1,63 @@
+.update-sample-modal-main{
+    background: linear-gradient(
+        135deg,
+        #4f4f4f 0%,     /* Light gray */
+        #585858 30%,     /* Mid gray */
+        #636363 60%,     /* Darker gray */
+        #707070 100%     /* Darkest gray */
+    );
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2vh;
+    height: 60vh;
+    width: 120vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.update-sample-modal-main h1{
+    color: white;
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.update-sample-modal-main input{
+    width: 29.1vw;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4vh;
+    border-radius: 1vh;
+    margin-top: 5vh;
+    padding: 1vh;
+}
+
+.update-sample-modal-main select, .update-sample-modal-main button {
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4vh;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+.update-sample-modal-main button{
+    margin-top: 5vh;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #5bb4aa;
+    color: white;
+    text-decoration: underline;
+}
+
+.update-sample-modal-main button:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+    backdrop-filter: blur(12px);
+    transform: scale(1.1);
+    text-decoration: none;
+}

@@ -24,7 +24,7 @@ export default function UpdateSampleModal({sample}) {
   };
 
   return (
-    <div>
+    <div className='update-sample-modal-main'>
       <h1>Update Sample {sample.id}</h1>
       <input
         type='text'

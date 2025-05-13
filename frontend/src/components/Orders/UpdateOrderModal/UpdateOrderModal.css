@@ -1,1 +1,83 @@
-/* UpdateOrderModal.css or equivalent */
+.updating-order-modal-main{
+  background: linear-gradient(
+    135deg,
+    #4f4f4f 0%,     /* Light gray */
+    #585858 30%,     /* Mid gray */
+    #636363 60%,     /* Darker gray */
+    #707070 100%     /* Darkest gray */
+);
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2vh;
+  height: 50vh;
+  width: 120vh;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.updating-order-modal-main::-webkit-scrollbar{
+  display: none;
+}
+
+.updating-sample{
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(245, 245, 255, 0.9),
+    rgba(255, 240, 250, 0.8)
+  );
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2vh;
+  margin: 2vh;
+  padding-bottom: 2vh;
+}
+
+.updating-sample button{
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+  width: 8vw;
+  height: 5vh;
+  border-radius: 2vh;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #5bb4aa;
+  color: white;
+  text-decoration: underline;
+}
+
+.updating-sample button:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+  backdrop-filter: blur(12px);
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+
+.update-add-sample-button button{
+  width: 8vw;
+  height: 5vh;
+  border-radius: 2vh;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #5bb4aa;
+  color: white;
+  text-decoration: underline;
+  display: flex;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-self: center;
+}
+
+.update-add-sample-button button:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Add shadow on hover */
+  backdrop-filter: blur(12px);
+  transform: scale(1.1);
+  text-decoration: none;
+  
+}
