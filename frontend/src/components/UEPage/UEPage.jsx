@@ -13,8 +13,9 @@ export default function UEPage() {
         dispatch(fetchUsers())
     }, [dispatch])
 
-    const clients = users.filter(user => user.role === 'client')
-    const employees = users.filter(user => user.role === 'employee' || user.role === 'admin')
+    const clients = users.filter(user => user?.role === 'client')
+    const employees = users.filter(user => user?.role === 'employee' || user?.role === 'admin')
+    console.log(employees)
 
     return (
         <div className='ue-main'>
