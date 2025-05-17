@@ -28,7 +28,7 @@ export default function UpdateSampleModal({sample}) {
       <h1>Update Sample {sample.id}</h1>
       <input
         type='text'
-        placeholder='Sample Name'
+        placeholder={sample.sample_name}
         value={sampleName}
         onChange={(e) => setSampleName(e.target.value)}
       />

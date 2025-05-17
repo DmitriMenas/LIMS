@@ -32,12 +32,12 @@ export default function LPC(){
                     {orders
                         ?.filter(order => !filterStatus || order.status === filterStatus)
                         .map((order) => (
-                            <div key={order.id} className="lpc-order-card">
+                            <div key={order?.id} className="lpc-order-card">
                                 <div className='lpc-orders-solo-card'>
-                                    <NavLink to={`/orders/${order.id}`}><p>Order number: {order.id}</p></NavLink>
-                                    <p>Number of Samples: {order.number_of_samples}</p>
-                                    <p>Order price: {order.total_price}</p>
-                                    <p>Order status: {order.status}</p>
+                                    <NavLink to={`/orders/${order.id}`}><p>Order number: {order?.id}</p></NavLink>
+                                    <p>Number of Samples: {order?.number_of_samples}</p>
+                                    <p>Order price: {order?.total_price}</p>
+                                    <p>Order status: {order?.status}</p>
                                 </div>
                             </div>
                         ))}
@@ -56,14 +56,14 @@ export default function LPC(){
                         {samples
                             ?.filter(sample => !filterStatus || sample.status === filterStatus)
                             .map((sample) => (
-                                <div key={sample.id} className='lpc-sample-card'>
+                                <div key={sample?.id} className='lpc-sample-card'>
                                     <div className='lpc-samples-solo-card'>
-                                        <NavLink to={`/samples/${sample.id}`}><p>Sample Number: {sample.id}</p></NavLink>
-                                        <p>Sample Name: {sample.sample_name}</p>
-                                        <p>Sample Type: {sample.sample_type}</p>
-                                        <p>Test Type: {sample.test_type}</p>
-                                        <p>Order Number: {sample.Order.id}</p>
-                                        <p>Sample Status: {sample.status}</p>
+                                        <NavLink to={`/samples/${sample?.id}`}><p>Sample Number: {sample?.id}</p></NavLink>
+                                        <p>Sample Name: {sample?.sample_name}</p>
+                                        <p>Sample Type: {sample?.sample_type}</p>
+                                        <p>Test Type: {sample?.test_type}</p>
+                                        <p>Order Number: {sample?.Order.id}</p>
+                                        <p>Sample Status: {sample?.status}</p>
                                     </div>
                                 </div>
                             ))

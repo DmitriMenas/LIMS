@@ -30,16 +30,16 @@ export default function LPE(){
                     </div>
                     <div className='lpe-samples-list'>
                         {samples
-                            ?.filter(sample => !filterStatus || sample.status === filterStatus)
+                            ?.filter(sample => !filterStatus || sample?.status === filterStatus)
                             .map((sample) =>(
-                                <div className='lpe-sample-card' key={sample.id}>
+                                <div className='lpe-sample-card' key={sample?.id}>
                                     <div className='lpe-sample-solo-card'>
-                                        <NavLink to={`/samples/${sample.id}`}><p>Sample Number: {sample.id}</p></NavLink>
-                                        <p>Sample Name: {sample.sample_name}</p>
-                                        <p>Sample Type: {sample.sample_type}</p>
-                                        <p>Test Type: {sample.test_type}</p>
-                                        <p>Order Number: {sample.Order.id}</p>
-                                        <p>Sample Status: {sample.status}</p>
+                                        <NavLink to={`/samples/${sample.id}`}><p>Sample Number: {sample?.id}</p></NavLink>
+                                        <p>Sample Name: {sample?.sample_name}</p>
+                                        <p>Sample Type: {sample?.sample_type}</p>
+                                        <p>Test Type: {sample?.test_type}</p>
+                                        <p>Order Number: {sample?.Order.id}</p>
+                                        <p>Sample Status: {sample?.status}</p>
                                     </div>
                                 </div>
                         ))}
@@ -60,10 +60,10 @@ export default function LPE(){
                         .map((order) => (
                             <div key={order.id} className="lpe-order-card">
                             <div className='lpe-orders-solo-card'>
-                                <NavLink to={`/orders/${order.id}`}><p>Order number: {order.id}</p></NavLink>
-                                <p>Number of Samples: {order.number_of_samples}</p>
-                                <p>Order price: {order.total_price}</p>
-                                <p>Order status: {order.status}</p>
+                                <NavLink to={`/orders/${order.id}`}><p>Order number: {order?.id}</p></NavLink>
+                                <p>Number of Samples: {order?.number_of_samples}</p>
+                                <p>Order price: {order?.total_price}</p>
+                                <p>Order status: {order?.status}</p>
                             </div>
                             </div>
                         ))}
