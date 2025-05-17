@@ -5,7 +5,7 @@ const { requireAuth } = require("../../utils/auth");
 
 // GET  - all orders
 router.get("/", async (req, res) => {
-  console.log('made it to the route')
+  
   try {
     const allOrders = await Order.findAll({
       include: [
